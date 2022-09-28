@@ -1,0 +1,18 @@
+.App {
+    margin: 50px;
+    /* display: flex;
+    justify-content: center; */
+    /* text-align: center; */
+
+    border: 1px solid gray;
+    height: 500px;
+
+}
+
+.main{
+    margin: 5px;
+}
+
+.form{
+    margin: 5px;
+}
