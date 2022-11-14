@@ -5,7 +5,6 @@ const ErrorComponent = () => <div>{this.props.ignore}</div>
 export default class Counter extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             counter: 0,
             userId: 0,
@@ -33,10 +32,10 @@ export default class Counter extends React.Component {
         }
         return null;
     }
-    /*  
+    /*
     the purpose of this method is have the chance to update the state as the props are changed
     getDerivedStateFromProps is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
-    
+
     https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
 
     */
