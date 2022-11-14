@@ -31,9 +31,9 @@ class Counter extends React.Component {
         console.log('componentWillUnmount')
     }
     shouldComponentUpdate(nextProps, nextState) {
-        // if (nextProps?.ignoreProp !== this.props?.ignoreProp) {
-        //     return false
-        // }
+        if (nextProps?.counterStep !== this.props?.counterStep) {
+            return false
+        }
         return true
     }
     // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
