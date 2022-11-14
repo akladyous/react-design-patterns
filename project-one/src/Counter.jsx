@@ -3,28 +3,38 @@ import React from 'react';
 class Counter extends React.Component {
     constructor(props) {
         super(props)
+        console.log('props : ', props)
         this.state = {
             counter: 0,
-            step: 0
+            // counterStep: this.props.counterStep || 0
         }
         window._rjs = this
         this.increment = this.increment.bind(this)
         this.decrement = this.decrement.bind(this)
     };
     static defaultProps = {
-        step: 0
+        counterStep: 0
     }
     increment() {
         this.setState((prevState, props) => ({
-            counter: prevState.counter + this.state.step + 1
+            counter: prevState.counter + this.props.counterStep + 1
         }))
     }
     decrement() {
-        this.setState({ counter: this.state.counter -= 1 })
+        this.setState({ counter: this.state.counter - this.props.counterStep - 1 })
     }
 
     componentDidMount() {
         console.log('component did mount')
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        // if (nextProps?.ignoreProp !== this.props?.ignoreProp) {
+        //     return false
+        // }
+        return true
     }
     // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -34,7 +44,7 @@ class Counter extends React.Component {
         return (
             <>
                 <div>
-                    <p>{this.props.step}</p>
+                    <p>props {this.props.counterStep}</p>
                 </div>
                 <div>
                     <p style={{ display: 'inline-block' }}>counter :</p> <span>{this.state.counter}</span>
@@ -42,6 +52,7 @@ class Counter extends React.Component {
                 <div>
                     <button onClick={this.increment}>increment</button>
                     <button onClick={this.decrement}>decrement</button>
+                    <button onClick={this.props.resetCounterStep}>reset counter step</button>
                 </div>
             </>
         )
