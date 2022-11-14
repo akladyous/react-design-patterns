@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import Counter from './Counter.js';
 // import logo from './logo.svg';
 // import './App.css';
@@ -8,27 +8,36 @@ const fakeUser = {
     name: 'John Brain',
     email: 'john.brain@gmail.com'
 }
-function App() {
-    const [mount, setMout] = useState(false)
-    const [userId, setUserId] = useState(0)
-    
-    const changeUserId = () => {
-        setUserId(Math.floor(Math.random() * 100))
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            mount: false,
+            userId: 0
+        }
+        this.changeUserId = this.changeUserId.bind(this)
+        this.handleMount = this.handleMount.bind(this)
     }
-
-    const handleMount = () => {
-        setMout(!mount)
+    changeUserId() {
+        this.setState({ userId: Math.floor(Math.random() * 100) })
     }
-
-    return (
-        <div className="App">
-            <button onClick={handleMount}>{!mount ? 'mount': 'unMount'}</button>
-            <button onClick={changeUserId}>change userId</button>
-            <div>
-                {mount ? <Counter userId={userId} /> : null}
+    handleMount() {
+        this.setState({ mount: !this.state.mount })
+    }
+    componentDidMount() {
+        console.log('App -> componentDidMount')
+    }
+    render() {
+        return (
+            <div className="App">
+                <button onClick={this.handleMount}>{!this.state.mount ? 'mount' : 'unMount'}</button>
+                <button onClick={this.changeUserId}>change userId</button>
+                <div>
+                    {this.state.mount ? <Counter userId={this.state.userId} /> : null}
+                </div>
             </div>
-        </div>
-    );
+        )
+    }
 }
 
 export default App;
