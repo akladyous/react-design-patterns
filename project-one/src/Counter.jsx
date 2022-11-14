@@ -25,6 +25,9 @@ class Counter extends React.Component {
     componentDidMount() {
         console.log('component did mount')
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+    }
     render() {
         return (
             <>
