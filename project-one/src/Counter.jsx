@@ -9,6 +9,7 @@ class Counter extends React.Component {
         }
         window._rjs = this
         this.increment = this.increment.bind(this)
+        this.decrement = this.decrement.bind(this)
     };
     static defaultProps = {
         step: 0
@@ -40,7 +41,7 @@ class Counter extends React.Component {
                 </div>
                 <div>
                     <button onClick={this.increment}>increment</button>
-                    <button onClick={this.decrement.bind(this)}>decrement</button>
+                    <button onClick={this.decrement}>decrement</button>
                 </div>
             </>
         )
