@@ -8,15 +8,15 @@ class Counter extends React.Component {
             step: 0
         }
         window._rjs = this
-        // this.increment = this.increment.bind(this)
+        this.increment = this.increment.bind(this)
     };
-    static defaultProps = { step: 3 }
+    static defaultProps = {
+        step: 0
+    }
     increment() {
         this.setState((prevState, props) => ({
             counter: prevState.counter + this.state.step + 1
-        }), () => { //callback to be called once state
-            console.log('completed set state, current state is : ', this.state)
-        })
+        }))
     }
     decrement() {
         this.setState({ counter: this.state.counter -= 1 })
@@ -25,8 +25,9 @@ class Counter extends React.Component {
     componentDidMount() {
         console.log('component did mount')
     }
+    // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
     componentDidUpdate(prevProps, prevState, snapshot) {
-
+        console.log('componentDidUpdate')
     }
     render() {
         return (
@@ -38,7 +39,7 @@ class Counter extends React.Component {
                     <p style={{ display: 'inline-block' }}>counter :</p> <span>{this.state.counter}</span>
                 </div>
                 <div>
-                    <button onClick={this.increment.bind(this)}>increment</button>
+                    <button onClick={this.increment}>increment</button>
                     <button onClick={this.decrement.bind(this)}>decrement</button>
                 </div>
             </>
