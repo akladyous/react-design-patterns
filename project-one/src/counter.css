@@ -1,0 +1,9 @@
+.app-component {
+    border: 1px solid gray;
+    height: 50px;
+    width: 50%;
+    height: 350px;
+    margin-inline: auto;
+}
+.errors {
+}
