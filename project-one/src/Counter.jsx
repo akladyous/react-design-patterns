@@ -31,9 +31,7 @@ class Counter extends React.Component {
     componentDidMount() {
         console.log('component did mount')
     }
-    componentWillUnmount() {
-        console.log('componentWillUnmount')
-    }
+
     shouldComponentUpdate(nextProps, nextState) {
         if (nextProps?.counterStep !== this.props?.counterStep) {
             return false
@@ -43,10 +41,7 @@ class Counter extends React.Component {
     getSnapshotBeforeUpdate(prevProps, prevState) {
         return null
     }
-    // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('componentDidUpdate')
-    }
+
     render() {
         if (this.state.counter > 5) {
             throw new Error('I crashed!')
@@ -70,7 +65,18 @@ class Counter extends React.Component {
             </div>
         )
     }
-
+    // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('componentDidUpdate')
+    }
+    /* ---------------------------------------------------------------------------------------------------------
+    componentWillUnmount() is invoked immediately before a component is unmounted and destroyed.
+    Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests,
+    or cleaning up any subscriptions that were created in componentDidMount().
+    */
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
 }
 
 export default Counter;
