@@ -32,14 +32,19 @@ class Counter extends React.Component {
         console.log('component did mount')
     }
 
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        return null
+    }
+
     shouldComponentUpdate(nextProps, nextState) {
+        /*
+        shouldComponentUpdate() is invoked before rendering when new props or state are being received.
+        Defaults to true. This method is not called for the initial render or when forceUpdate() is used.
+        */
         if (nextProps?.counterStep !== this.props?.counterStep) {
             return false
         }
         return true
-    }
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        return null
     }
 
     render() {
@@ -73,7 +78,6 @@ class Counter extends React.Component {
         This is also a good place to do network requests as long as you compare the current props to previous props
         (e.g. a network request may not be necessary if the props have not changed).
         */
-
         console.log('componentDidUpdate')
     }
     //---------------------------------------------------------------------------------------------------------
