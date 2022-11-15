@@ -85,6 +85,7 @@ class Counter extends React.Component {
     }
     //---------------------------------------------------------------------------------------------------------
     componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('componentDidUpdate')
         /*
         componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
         Use this as an opportunity to operate on the DOM when the component has been updated.
@@ -95,12 +96,12 @@ class Counter extends React.Component {
     }
     //---------------------------------------------------------------------------------------------------------
     componentWillUnmount() {
+        console.log('componentWillUnmount')
         /*
             componentWillUnmount() is invoked immediately before a component is unmounted and destroyed.
             Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests,
             or cleaning up any subscriptions that were created in componentDidMount().
         */
-        console.log('componentWillUnmount')
     }
 }
 
