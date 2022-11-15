@@ -60,6 +60,7 @@ class Counter extends React.Component {
     }
 
     render() {
+        console.log('render')
         if (this.state.counter > 5) {
             throw new Error('I crashed!')
         }
