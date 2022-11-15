@@ -33,6 +33,7 @@ class Counter extends React.Component {
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate')
         return null
 
         /*
