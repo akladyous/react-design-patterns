@@ -46,6 +46,10 @@ class Counter extends React.Component {
         A snapshot value (or null) should be returned.
         */
     }
+    static getDerivedStateFromProps(props, state) {
+        console.log('getDerivedStateFromProps')
+
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate')
