@@ -36,6 +36,9 @@ class Counter extends React.Component {
         }
         return true
     }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+
+    }
     // componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('componentDidUpdate')
