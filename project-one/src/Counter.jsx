@@ -6,6 +6,7 @@ class Counter extends React.Component {
         super(props)
         this.state = {
             counter: 0,
+            step: 0
             // counterStep: this.props.counterStep || 0
         }
         window._counter = this
