@@ -106,7 +106,7 @@ export default class Counter extends React.Component {
         console.log(error, info);
         console.log("--------------------------");
     }
-    //  ----------------------------------------------------------------
+    //  ---------------------------------------------------------------
     componentDidMount() {
         console.log("--------------------------");
         console.log("Component did mount");
