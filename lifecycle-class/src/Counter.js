@@ -114,7 +114,7 @@ export default class Counter extends React.Component {
     /*
     componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
     */
-    //  ----------------------------------------------------------------
+    //  ---------------------------------------------------------------
     componentWillUnmount() {
         console.log("--------------------------");
         console.log("component will unmount");
