@@ -6,7 +6,8 @@ class Counter extends React.Component {
         super(props)
         this.state = {
             counter: 0,
-            step: 0
+            step: 1,
+            users: []
             // counterStep: this.props.counterStep || 0
         }
         window._counter = this
@@ -35,6 +36,7 @@ class Counter extends React.Component {
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('getSnapshotBeforeUpdate')
+        console.log('getSnapshotBeforeUpdate')
         return null
 
         /*
@@ -53,7 +55,7 @@ class Counter extends React.Component {
         getDerivedStateFromProps is invoked right before calling the render method, both on the initial mount and on subsequent updates.
         It should return an object to update the state, or null to update nothing.
         */
-        return null
+        return { step: 0 }
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -91,6 +93,11 @@ class Counter extends React.Component {
 
             </div>
         )
+    }
+    componentDidMount() {
+        // fetch("https://jsonplaceholder.typicode.com/users")
+        //     .then(response => response.json())
+        //     .then(users => this.setState({ users: users }))
     }
     //---------------------------------------------------------------------------------------------------------
     componentDidUpdate(prevProps, prevState, snapshot) {
