@@ -83,7 +83,7 @@ export default class Counter extends React.Component {
     /*
     getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
     */
-    //  ----------------------------------------------------------------
+    //  ---------------------------------------------------------------
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log("Component did update");
         console.log(
