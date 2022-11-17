@@ -99,7 +99,7 @@ export default class Counter extends React.Component {
     }
     /*  componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
      */
-    //  ----------------------------------------------------------------
+    //  ---------------------------------------------------------------
 
     componentDidCatch(error, info) {
         console.log("Component did catch");
