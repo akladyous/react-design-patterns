@@ -1,10 +1,10 @@
 import logo from './assets/react.svg';
-import './App.css';
+// import './App.css';
 
 function App() {
     return (
-        <header className='h-12 bg-gray-800'>
-            <nav className='relative px-4 py-4 flex justify-between items-center bg-white'>
+        <header className='h-14 bg-whte'>
+            <nav className='relative px-4 py-4 flex justify-between items-center h-full'>
                 <a className="text-3xl font-bold leading-none" href="#home">
                     <img src={logo} alt="logo" />
                 </a>
@@ -12,15 +12,8 @@ function App() {
                     <button
                         className="navbar-burger flex items-center text-blue-600 p-3"
                     >
-                        <svg
-                            className="block h-4 w-4 fill-current"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <title>Mobile menu</title>
-                            <path
-                                d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
-                            ></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
@@ -79,20 +72,10 @@ function App() {
                             <img src="" alt="" />
                         </a>
                         <button className="navbar-close">
-                            <svg
-                                className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"
-                                ></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
+
                         </button>
                     </div>
                     <div>
