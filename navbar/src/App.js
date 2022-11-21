@@ -41,7 +41,7 @@ function App() {
 
                     <li>
                         <a className="text-sm  font-bold" href="/">
-                            About Us
+                            About
                         </a>
                     </li>
 
