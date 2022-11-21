@@ -40,7 +40,7 @@ function App() {
                     </li>
 
                     <li>
-                        <a className="text-sm text-blue-600 font-bold" href="/">
+                        <a className="text-sm  font-bold" href="/">
                             About Us
                         </a>
                     </li>
