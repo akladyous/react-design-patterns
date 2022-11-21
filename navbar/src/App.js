@@ -1,24 +1,37 @@
+import { useEffect, useRef } from 'react';
 import logo from './assets/react.svg';
 // import './App.css';
 
 function App() {
+    const navbarMenuRef = useRef(null)
+    function toggleMenu(elementRef) {
+        elementRef.current.classList.toggle('hidden')
+    }
+
     return (
         <header className='h-14 bg-whte'>
             <nav className='relative px-4 py-4 flex justify-between items-center h-full'>
-                <a className="text-3xl font-bold leading-none" href="#home">
-                    <img src={logo} alt="logo" />
-                </a>
-                <div className="lg:hidden">
-                    <button
-                        className="navbar-burger flex items-center text-blue-600 p-3"
-                    >
+                <div className='flex items-center space-x-4'>
+                    <div className='icon'>
+
+                        <a className="text-3xl font-bold leading-none" href="#home">
+                            <img src={logo} alt="logo" />
+                        </a>
+                    </div>
+                    <div className="title">
+                        <h1 className='text-lg font-light'>MyApp</h1>
+                    </div>
+                </div>
+                <div className="md:hidden">
+                    <button className="navbar-burger flex items-center text-blue-600 p-3" onClick={toggleMenu.bind(null, navbarMenuRef)} >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
+                {/* primary navbar */}
                 <ul
-                    className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6"
+                    className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto md:flex md:items-center md:w-auto md:space-x-6"
                 >
                     <li>
                         <a className="text-sm text-gray-400 hover:text-gray-500" href="/">
@@ -49,8 +62,9 @@ function App() {
                         <a
                             className="text-sm text-gray-400 hover:text-gray-500"
                             href="/"
-                        >Contact</a
                         >
+                            Contact
+                        </a>
                     </li>
                 </ul>
                 <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200" href="/">
@@ -59,10 +73,11 @@ function App() {
                 <a
                     className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
                     href="/"
-                >Sign up</a
                 >
+                    Sign up
+                </a>
             </nav>
-            <div className="navbar-menu relative z-50 hidden">
+            <div className="navbar-menu relative z-50 hidden" ref={navbarMenuRef} onClick={toggleMenu.bind(null, navbarMenuRef)}>
                 <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
                 <nav
                     className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
