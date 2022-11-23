@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./navbar.jsx";
+import Navbar from "./Navbar.jsx";
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
