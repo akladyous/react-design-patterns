@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import logo from './assets/react.svg';
+import logo from '../assets/react.svg';
 // import './App.css';
 
-function App() {
+export default function Navbar() {
     const navbarMenuRef = useRef(null)
     function toggleMenu(elementRef) {
         elementRef.current.classList.toggle('hidden')
@@ -154,5 +154,3 @@ function App() {
         </header>
     );
 }
-
-export default App;

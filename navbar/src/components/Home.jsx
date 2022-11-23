@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "./Navbar.jsx";
+// import Navbar from "./Navbar.jsx";
+import Navbar from "./NavTemplate.jsx";
 
 export default class Home extends React.Component {
 
@@ -26,11 +27,14 @@ export default class Home extends React.Component {
         return (
             <>
                 <Navbar />
-                <button className="w-fit p-2 rounded-md bg-slate-300" onClick={() => {
-                    this.getBreakPoint()
-                    this.myRef.current.textContent = `Current BreakPoint is ${this.state.breaPoint}`
-                }}>breakpoint</button>
-                <p className="outline-1" ref={this.myRef}>current breakpoint is : {this.state.breaPoint}</p>
+                <div className="h-1/2 w-1/2 border border-gray-200">
+
+                    <button className="w-fit p-2 rounded-md bg-slate-300" onClick={() => {
+                        this.getBreakPoint()
+                        this.myRef.current.textContent = `Current BreakPoint is ${this.state.breaPoint}`
+                    }}>breakpoint</button>
+                    <p className="outline-1" ref={this.myRef}>current breakpoint is : {this.state.breaPoint}</p>
+                </div>
             </>
         )
     }

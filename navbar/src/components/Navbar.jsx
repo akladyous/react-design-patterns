@@ -19,7 +19,7 @@ export default function Navbar() {
                     </div>
                 </div>
                 {/* ----------  */}
-                <nav className="absolute flex flex-col top-14 z-100 md:top-1/2 md:left-1/2 md:transform md:-translate-y-1/2 md:-translate-x-1/2 md:mx-auto md:flex-row md:items-center md:w-auto md:space-x-6">
+                <nav className="hidden md:absolute md:flex md:items-center md:top-1/2 md:left-1/2 md:transform md:-translate-y-1/2 md:-translate-x-1/2 md:mx-auto md:w-auto md:space-x-6">
                     <a className="text-md font-semibold my-2" href="/">
                         Home
                     </a>
@@ -46,7 +46,7 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
-            {/* <nav className="hidden bg-red-100 pl-4">
+            <nav className="hidden bg-red-100 pl-4 sm:flex sm:flex-col z-50">
                 <a
                     className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
@@ -77,7 +77,7 @@ export default function Navbar() {
                 >
                     Contact
                 </a>
-            </nav > */}
+            </nav >
         </header >
     );
 }
