@@ -1,7 +1,12 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/react.svg";
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+
+    }, [])
     return (
         <header className="h-14 ">
             <div className="relative flex justify-between items-center p-3 h-full">
@@ -14,20 +19,20 @@ export default function Navbar() {
                     </div>
                 </div>
                 {/* ----------  */}
-                <nav className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 md:mx-auto md:flex md:items-center md:w-auto md:space-x-6">
-                    <a className="text-md font-semibold" href="/">
+                <nav className="absolute flex flex-col top-14 md:top-1/2 md:left-1/2 md:transform md:-translate-y-1/2 md:-translate-x-1/2 md:mx-auto md:flex-row md:items-center md:w-auto md:space-x-6">
+                    <a className="text-md font-semibold my-2" href="/">
                         Home
                     </a>
-                    <a className="text-md font-semibold" href="/">
+                    <a className="text-md font-semibold my-2" href="/">
                         About Us
                     </a>
-                    <a className="text-md font-semibold" href="/">
+                    <a className="text-md font-semibold my-2" href="/">
                         Services
                     </a>
-                    <a className="text-md font-semibold" href="/">
+                    <a className="text-md font-semibold my-2" href="/">
                         Pricing
                     </a>
-                    <a className="text-md font-semibold" href="/">
+                    <a className="text-md font-semibold my-2" href="/">
                         Contact
                     </a>
                 </nav>
@@ -41,38 +46,38 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
-            <nav className="bg-slate-300">
+            <nav className="hidden bg-red-100 pl-4">
                 <a
-                    className="block p-4 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
+                    className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
                 >
                     Home
                 </a>
                 <a
-                    className="block p-4 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
+                    className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
                 >
                     About Us
                 </a>
                 <a
-                    className="block p-4 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
+                    className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
                 >
                     Services
                 </a>
                 <a
-                    className="block p-4 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
+                    className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
                 >
                     Pricing
                 </a>
                 <a
-                    className="block p-4 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
+                    className="block py-3 text-sm font-semibold hover:bg-blue-50 hover:text-blue-600 rounded"
                     href="/"
                 >
                     Contact
                 </a>
-            </nav>
-        </header>
+            </nav >
+        </header >
     );
 }
