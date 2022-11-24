@@ -78,11 +78,10 @@ export default function Navbar() {
                 </a>
             </nav>
             <div className="navbar-menu relative z-50 hidden" ref={navbarMenuRef} onClick={toggleMenu.bind(null, navbarMenuRef)}>
-                <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+                {/* <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div> */}
                 <nav
-                    className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto"
-                >
-                    <div className="flex items-center mb-8">
+                    className="fixed top-14 left-0 bottom-0 flex flex-col w-5/6 max-w-sm px-6 bg-white border-r overflow-y-auto border">
+                    {/* <div className="flex items-center mb-8">
                         <a className="mr-auto text-3xl font-bold leading-none" href="/">
                             <img src="" alt="" />
                         </a>
@@ -92,7 +91,7 @@ export default function Navbar() {
                             </svg>
 
                         </button>
-                    </div>
+                    </div> */}
                     <div>
                         <ul>
                             <li className="mb-1">
