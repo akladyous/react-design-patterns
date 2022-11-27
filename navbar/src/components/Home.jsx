@@ -1,7 +1,8 @@
 import React from "react";
-// import Navbar from "./Navbar.jsx";
-// import Navbar from "./NavTemplate.jsx";
-import TailwindNav from "./TailwindNav.jsx";
+// import MyNavbar from "./MyNavbar.jsx";
+// import NavTemplate from "./NavTemplate.jsx";
+// import TailwindNav from "./TailwindNav.jsx";
+import Navbar from "./Navbar.jsx";
 
 export default class Home extends React.Component {
 
@@ -27,8 +28,8 @@ export default class Home extends React.Component {
     render() {
         return (
             <>
-                {/* <Navbar /> */}
-                <TailwindNav />
+                <Navbar />
+
                 <div className="h-1/2 w-1/2 border border-gray-200">
 
                     <button className="w-fit p-2 rounded-md bg-slate-300" onClick={() => {

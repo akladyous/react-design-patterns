@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import logo from '../assets/react.svg';
 // import './App.css';
 
-export default function Navbar() {
+export default function NavTemplate() {
     const navbarMenuRef = useRef(null)
     function toggleMenu(elementRef) {
         elementRef.current.classList.toggle('hidden')
