@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
 export default function CounterWrapper(props) {
+    console.log('CounterWrapper Props: ', props)
     const [counter, setCounter] = useState(props.initialCount || 0)
 
     useEffect(() => {
         console.log('CounterWrapper')
     })
-
 
     function increment() {
         setCounter(counter + 1)

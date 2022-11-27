@@ -12,15 +12,15 @@ function App() {
     }
     return (
         <>
-            {/* <Counter initialCount={10} />
-            <CounterWrapper render={callback} /> */}
+            <Counter initialCount={10} />
+            {/* <CounterWrapper render={callback} /> */}
 
-            {/* <CounterWrapper render={(counter, increment, decrement) => {
+            <CounterWrapper render={(counter, increment, decrement) => {
                 return <Counter1 counter={counter} increment={increment} decrement={decrement} />
-            }} /> */}
+            }} Com={Counter1} />
 
 
-            <MouseTracker />
+            {/* <MouseTracker /> */}
         </>
     )
 }

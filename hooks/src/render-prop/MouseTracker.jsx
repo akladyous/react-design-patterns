@@ -25,7 +25,7 @@ export class Mouse extends React.Component {
     render() {
         return (
             <div
-                style={{ height: '100vh' }}
+                style={{ height: '100vh', backgroundColor: 'yellow' }}
                 onMouseMove={this.handleMouseMove}
             >
                 {this.props.render(this.state)}
