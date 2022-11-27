@@ -1,9 +1,15 @@
 import { useState, useReducer } from "react";
+
+const initState = function (initialCount) {
+    return { counter: initialCount || 0 }
+}
+
 const ACTIONS = {
     INCREMENT: "increment",
     DECREMENT: "decrement",
     RESET: 'reset'
 };
+
 function reducer(state, action) {
     switch (action.type) {
         case ACTIONS.INCREMENT:
@@ -17,16 +23,9 @@ function reducer(state, action) {
     }
 }
 
-export default function Counter() {
+export default function Counter({ initialCount }) {
     const [counter, setCounter] = useState(0);
-    const [state, dispatch] = useReducer(reducer, { counter: 0 });
-
-    function increment() {
-        dispatch({ type: ACTIONS.INCREMENT })
-    }
-    function decrement() {
-        dispatch({ type: ACTIONS.DECREMENT })
-    }
+    const [state, dispatch] = useReducer(reducer, initialCount, initState);
 
     return (
         <section>
@@ -60,13 +59,13 @@ export default function Counter() {
                 <div className="p-1">
                     <button
                         className="d-inline-block btn btn-primary me-2"
-                        onClick={increment}
+                        onClick={(e) => dispatch({ type: ACTIONS.INCREMENT })}
                     >
                         Increment
                     </button>
                     <button
                         className="d-inline-block btn btn-primary me-2"
-                        onClick={decrement}
+                        onClick={(e) => dispatch({ type: ACTIONS.DECREMENT })}
                     >
                         Decrement
                     </button>
