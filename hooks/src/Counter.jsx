@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect, useRef, RefObject } from "react";
 
 const initState = function (initialCount) {
     return { counter: initialCount || 0 }
@@ -26,6 +26,14 @@ function reducer(state, action) {
 export default function Counter({ initialCount }) {
     const [counter, setCounter] = useState(0);
     const [state, dispatch] = useReducer(reducer, initialCount, initState);
+    const myValue = useRef(false)
+
+    useEffect(() => {
+        console.log('useState counter')
+    }, [counter])
+    useEffect(() => {
+        console.log('useReducer counter')
+    }, [state.counter])
 
     return (
         <section>
