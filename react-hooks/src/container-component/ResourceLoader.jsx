@@ -25,7 +25,7 @@ export default function ResourceLoader(props) {
             {
                 React.Children.map(children, child => {
                     if (React.isValidElement(child)) {
-                        return React.cloneElement(child, { [ResourceName]: state })
+                        return React.cloneElement(child, { ...child.props, [ResourceName]: state })
                     }
                     return child;
                 })
