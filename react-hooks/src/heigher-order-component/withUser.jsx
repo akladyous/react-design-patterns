@@ -13,3 +13,15 @@ export default function withUser(Component, userId) {
         return <Component {...props} user={user} />
     };
 }
+/*
+    from the parent component
+    const UserInfoWithLoader = withUser(UserInfo, '234')
+
+    function App() {
+        return (
+            <UserInfoWithLoader />
+        )
+    }
+
+
+*/
