@@ -22,6 +22,15 @@ export default function DataSource({ getDataFunc, resourceName, children }) {
         </>
     )
 }
+/*
+    const getLocalStorageData = key => () => {
+        return localStorage.getItem(key)
+    }
+    const Text = ({message}) => <h1>{message}</h1>;
+    <DataSource getDataFunc={getLocalStorageData('keyName')} resourceName="keyName">
+        <Text />
+    </DataSource >
+*/
 
 /*
     called from parent component
