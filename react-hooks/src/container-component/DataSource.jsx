@@ -5,7 +5,7 @@ export default function DataSource({ getDataFunc, resourceName, children }) {
 
     useEffect(() => {
         (async () => {
-            const data = getDataFunc();
+            const data = await getDataFunc();
             setState(data)
         })()
     }, [getDataFunc])
