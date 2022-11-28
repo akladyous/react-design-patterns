@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 export default function ResourceLoader(props) {
-    const { resourceURL, ResourceName, children } = props;
+    const { resourceURL, resourceName, children } = props;
     const [state, setState] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -25,7 +25,7 @@ export default function ResourceLoader(props) {
             {
                 React.Children.map(children, child => {
                     if (React.isValidElement(child)) {
-                        return React.cloneElement(child, { ...child.props, [ResourceName]: state })
+                        return React.cloneElement(child, { ...child.props, [resourceName]: state })
                     }
                     return child;
                 })
