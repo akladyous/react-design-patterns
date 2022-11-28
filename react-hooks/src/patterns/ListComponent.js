@@ -1,6 +1,4 @@
 import React from 'react'
-
-
 export default function ListComponent(props) {
     const {
         items,
@@ -9,6 +7,7 @@ export default function ListComponent(props) {
     } = props || {};
     const { loading } = props || false
     console.log("loading: ", loading);
+    // debugger
     return (
         <>
             {loading ? <p style={{ backgroundColor: "red" }}>loading...</p> : null}

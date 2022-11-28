@@ -1,7 +1,8 @@
 
 import React from 'react'
 
-export default function ListItem({user}) {
+export default function ListItem({ user }) {
+    // debugger
     return (
         <div className="container border p-2">
             <ul className="list-group list-group-horizontal">

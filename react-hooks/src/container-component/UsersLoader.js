@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-export default function UsersLoader({children, resourceName}) {
+export default function UsersLoader({ children, resourceName }) {
     const [items, setItems] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    useEffect(() =>{
+    useEffect(() => {
         const controller = new AbortController();
         setLoading(true)
         fetch("https://jsonplaceholder.typicode.com/users", {
@@ -18,24 +18,27 @@ export default function UsersLoader({children, resourceName}) {
             })
             .finally(() => {
                 setLoading(false);
-                controller.abort();
+                // controller.abort();
             });
-    },[])
+        return () => {
+            controller.abort();
+        }
+    }, [])
 
     return (
         <>
-        {
-            React.Children.map(children, child =>{
-                if(React.isValidElement(child)){
-                    return React.cloneElement(child, {
-                        ...child.props,
-                        [resourceName]: items,
-                        loading,
-                        items
-                    })
-                }
-            })
-        }
+            {
+                React.Children.map(children, child => {
+                    if (React.isValidElement(child)) {
+                        return React.cloneElement(child, {
+                            ...child.props,
+                            [resourceName]: items,
+                            loading,
+                            items
+                        })
+                    }
+                })
+            }
         </>
     );
 
