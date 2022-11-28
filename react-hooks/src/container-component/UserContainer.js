@@ -16,3 +16,20 @@ export default function UserContainer(props) {
 
     )
 }
+/*
+    called from parent component
+
+
+    const getServerData = url => async () => {
+        const response = await axios.get(url);
+        return response.data;
+    }
+
+    <DataSource
+        getDataFunc={getServerData('url...')}
+        resourceName="user"
+    >
+        <SomeComponent></SomeComponent>
+    </DataSource >
+
+*/
