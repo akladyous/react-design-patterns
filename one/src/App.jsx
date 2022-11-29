@@ -19,7 +19,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="app-component">
+            <div className="container mx-auto border-solid px-4">
                 <div className="mount-container">
                     <button onClick={this.mountCounter} disabled={this.state.mountCounter}>Mount Counter</button>
                     <button onClick={this.umMountCounter} disabled={!this.state.mountCounter}>UnMount Counter</button>

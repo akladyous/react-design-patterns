@@ -51,7 +51,7 @@ const ParentForm = (props) => {
                     const fieldName = item[0]
                     return (
                         <InputField
-                            key={new Date().getTime().toString(16)}
+                            key={window.crypto.randomUUID()}
                             name={fieldName}
                             value={state[fieldName]}
                             onChange={handleChange}

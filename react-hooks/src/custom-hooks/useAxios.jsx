@@ -1,15 +1,13 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
-export default function useAxios(props) {
-    const { url } = props || {};
+export default function useAxios(url) {
+    debugger
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-
     const controller = new AbortController();
-
     async function fetchData(url, params) {
         const config = {
             headers: { "Content-type": "application/json" },
@@ -26,14 +24,11 @@ export default function useAxios(props) {
     }
 
     useEffect(() => {
-
-
+        fetchData()
         return () => {
-            setIsLoading(false)
             controller.abort()
         }
     }, [])
-    return (
-        <div>useAxios</div>
-    )
-}
+
+    return { data, isLoading, error };
+};
