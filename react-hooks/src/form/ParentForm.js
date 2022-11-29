@@ -11,30 +11,30 @@ const ACTION = {
     CHANGE_VALUE: "changeValue",
     SUBMIT_FORM: "submitForm",
 }
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case ACTION.CHANGE_VALUE: {
-                return { ...state, [action.field]: action.payload };
-            }
-            case ACTION.SUBMIT_FORM: {
-                return state;
-            }
-            default: {
-                return state;
-            }
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ACTION.CHANGE_VALUE: {
+            return { ...state, [action.field]: action.payload };
         }
-    };
+        case ACTION.SUBMIT_FORM: {
+            return state;
+        }
+        default: {
+            return state;
+        }
+    }
+};
 
 const ParentForm = (props) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const handleChange = useCallback((e) =>{
+    const handleChange = useCallback((e) => {
         dispatch({
             type: ACTION.CHANGE_VALUE,
             field: e.target.name,
             payload: e.target.value
         })
-    },[])
+    }, [])
 
     useEffect(() => {
         console.log("%cPARENT - component did mount", "color: green");
@@ -47,11 +47,11 @@ const ParentForm = (props) => {
         <div className="container border mt-5 w-50">
             <h4>User Form</h4>
             {
-                Object.entries(state).map( (item, index) => {
+                Object.entries(state).map((item, index) => {
                     const fieldName = item[0]
                     return (
                         <InputField
-                            key={index + 1}
+                            key={new Date().getTime().toString(16)}
                             name={fieldName}
                             value={state[fieldName]}
                             onChange={handleChange}
