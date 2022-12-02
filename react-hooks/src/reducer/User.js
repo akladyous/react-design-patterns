@@ -12,11 +12,11 @@ const ACTION = {
     SUBMIT_FORM: "submitForm",
 };
 
-const reducer = (state, action) =>{
-    switch(action.type){
+const reducer = (state, action) => {
+    switch (action.type) {
         case ACTION.CHANGE_VALUE: {
             console.log("action: ", action)
-            return {...state, [action.field]: action.payload }
+            return { ...state, [action.field]: action.payload }
         }
         case ACTION.SUBMIT_FORM: {
             console.log("action : ", action)
@@ -57,7 +57,7 @@ export default function User() {
                 <button
                     type="submit"
                     className="btn btn-primary"
-                    onClick={(e)=>{
+                    onClick={(e) => {
                         e.preventDefault();
                         dispatch({ type: ACTION.SUBMIT_FORM });
                     }}

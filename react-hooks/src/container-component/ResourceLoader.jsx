@@ -4,6 +4,7 @@ export default function ResourceLoader(props) {
     const { resourceURL, resourceName, children } = props;
     const [state, setState] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const controller = new AbortController();
@@ -11,6 +12,7 @@ export default function ResourceLoader(props) {
             .then((response) => response.json())
             .then((data) => setState(data))
             .catch((error) => {
+                setError(error.message)
                 console.error(error.message);
             })
             .finally(() => {
