@@ -2,7 +2,6 @@ import axios from 'axios'
 import { useState, useEffect } from 'react';
 
 export default function useAxios(url) {
-    debugger
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);

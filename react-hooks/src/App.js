@@ -9,7 +9,10 @@ import StateConsumer from "./context/StateConsumer.js";
 import UserContainer from "./container-component/UserContainer.js";
 import DataSource from "./container-component/DataSource.jsx";
 import useAxios from "./custom-hooks/useAxios.jsx";
-
+// ----
+import MemoParent from "./memo/MemoParent.js";
+import { MemoChild } from "./memo/MemoChild.js";
+// ----
 
 function App() {
     const { data, isLoading, error } = useAxios("https://jsonplaceholder.typicode.com/users")
@@ -26,6 +29,13 @@ function App() {
             {/* <MemoParent /> */}
             {/* <CounterReducer /> */}
             {/* <User /> */}
+            <hr />
+            <div className="container border">
+                <h4>MEMO stop rendering</h4>
+                <MemoParent>
+                    <MemoChild />
+                </MemoParent>
+            </div>
         </div>
     );
 }
