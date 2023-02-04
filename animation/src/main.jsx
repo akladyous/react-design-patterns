@@ -7,11 +7,14 @@ import CountUpComponent from './CountUpComponent.jsx';
 import ProgressBarCircle from './ProgressBarCircle.jsx';
 import App from './App';
 import Root from './Root.jsx';
+import TypeAnimation from './TypeAnimation.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <App /> */}
-    <Root />
+    <Root>
+      <TypeAnimation />
+    </Root>
     <div className='border mb-2 w-75 mx-auto'>
       <CountUpComponent
         maxValue={50}
