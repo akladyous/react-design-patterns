@@ -1,42 +1,47 @@
-import React from 'react';
-import { render } from 'react-dom';
-import VisibilitySensor from 'react-visibility-sensor';
 import { InView } from 'react-intersection-observer';
-
-// Import module and default styles
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-export default function ProgressBarCircle() {
+import CountUpComponent from './CountUpComponent.jsx';
+
+export default function ProgressBarCircle({
+  maxValue = 100,
+  delay = 0,
+  duration = 3,
+  text,
+  suffix,
+  textSize = '1rem',
+  trailColor = '#d6d6d6',
+  textColor = '#3e98c7',
+  pathColor = '#3e98c7',
+  children,
+}) {
   return (
-    <div>
-      <div style={{ height: 1500, background: '#ddd' }}>Placeholder content, scroll down</div>
-      <div style={{ width: '100px' }}>
-        <p>This should animate only when visible</p>
-        <VisibilitySensor>
-          {/* -------------------------------------- */}
-          <InView
-            as='div'
-            onChange={(inView, entry) => console.log('Inview:', inView)}
-          >
-            <h2>Plain children are always rendered. Use onChange to monitor state.</h2>
-            <CircularProgressbar
-              value={percentage}
-              text={`${percentage}%`}
-            />
-          </InView>
-          {/* -------------------------------------- */}
-          {({ isVisible }) => {
-            const percentage = isVisible ? 90 : 0;
-            return (
-              <CircularProgressbar
+    <>
+      <InView>
+        {({ inView, ref, entry }) => {
+          const percentage = inView ? maxValue : 0;
+          const transition = `stroke-dashoffset ${duration}s ease ${delay}s`;
+          return (
+            <div ref={ref}>
+              <CircularProgressbarWithChildren
                 value={percentage}
-                text={`${percentage}%`}
-              />
-            );
-          }}
-        </VisibilitySensor>
-      </div>
-    </div>
+                {...(text ? (suffix ? { text: `${text}${suffix}` } : { text }) : {})}
+                styles={buildStyles({
+                  // pathTransition: percentage === 0 ? 'none' : transition,
+                  trailColor,
+                  textColor,
+                  pathColor,
+                  textSize,
+                  pathTransitionDuration: duration,
+                })}
+              >
+                {children}
+              </CircularProgressbarWithChildren>
+            </div>
+          );
+        }}
+      </InView>
+    </>
   );
 }
