@@ -1,15 +1,23 @@
-import Typing from 'react-typing-animation';
+// import Typing from 'react-typing-animation';
+import Typed from 'react-typed';
 
 export default function TypeAnimation() {
+  const lorem =
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia libero eveniet assumenda magni officiis consequuntur dolorum ullam sapiente aut, repellendus dolore labore quos ad amet adipisci hic, eaque rerum consectetur!';
   return (
     <div className='container w-50 border'>
-      <Typing>
-        <div>
-          There will be a 1000ms delay here,
-          <Typing.Delay ms={1000} />
-          then this will be typed.
-        </div>
-      </Typing>
+      <div>
+        <Typed
+          // strings={lorem.split(' ')}
+          // strings={['marketplaces', 'businesses', 'restaurants', 'more...']}
+          strings={[
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia libero eveniet assumenda magni officiis consequuntur dolorum ullam sapiente aut',
+          ]}
+          typeSpeed={100}
+          backSpeed={50}
+          loopCount={1}
+        />
+      </div>
     </div>
   );
 }
