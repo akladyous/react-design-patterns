@@ -1,5 +1,6 @@
 // import Typing from 'react-typing-animation';
 import Typed from 'react-typed';
+import 'react-typed/dist/animatedCursor.css';
 
 export default function TypeAnimation() {
   const lorem =
@@ -16,6 +17,8 @@ export default function TypeAnimation() {
           typeSpeed={100}
           backSpeed={50}
           loopCount={1}
+          className='text-danger fs-4'
+          loop
         />
       </div>
     </div>
