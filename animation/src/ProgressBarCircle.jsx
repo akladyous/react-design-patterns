@@ -1,8 +1,12 @@
-import { InView } from 'react-intersection-observer';
-import { CircularProgressbar, buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { InView } from "react-intersection-observer";
+import {
+  CircularProgressbar,
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
-import CountUpComponent from './CountUpComponent.jsx';
+import CountUpComponent from "./CountUpComponent.jsx";
 
 export default function ProgressBarCircle({
   maxValue = 100,
@@ -10,10 +14,10 @@ export default function ProgressBarCircle({
   duration = 3,
   text,
   suffix,
-  textSize = '1rem',
-  trailColor = '#d6d6d6',
-  textColor = '#3e98c7',
-  pathColor = '#3e98c7',
+  textSize = "1rem",
+  trailColor = "#d6d6d6",
+  textColor = "#3e98c7",
+  pathColor = "#3e98c7",
   children,
 }) {
   return (
@@ -26,7 +30,11 @@ export default function ProgressBarCircle({
             <div ref={ref}>
               <CircularProgressbarWithChildren
                 value={percentage}
-                {...(text ? (suffix ? { text: `${text}${suffix}` } : { text }) : {})}
+                {...(text
+                  ? suffix
+                    ? { text: `${text}${suffix}` }
+                    : { text }
+                  : {})}
                 styles={buildStyles({
                   // pathTransition: percentage === 0 ? 'none' : transition,
                   trailColor,
