@@ -65,7 +65,6 @@ export default class Counter extends React.Component {
     console.log('--------------------------');
     return { prova: 10 };
   }
-  //  ---------------------------------------------------------------
   //  componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Component did update');
