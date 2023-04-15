@@ -84,14 +84,14 @@ export default class Counter extends React.Component {
     console.log('--------------------------');
     console.log('Component did mount');
   }
+  /*
+    componentWillUnmount() is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
+  */
   componentWillUnmount() {
     console.log('--------------------------');
     console.log('component will unmount');
     console.log('--------------------------');
   }
-  /*
-      componentWillUnmount() is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
-      */
 
   render() {
     console.log('Render method');
