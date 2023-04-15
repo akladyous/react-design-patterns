@@ -55,6 +55,9 @@ export default class Counter extends React.Component {
       https://reactjs.org/docs/react-component.html#shouldcomponentupdate
       */
   //  ----------------------------------------------------------------
+  /*
+      getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
+      */
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('--------------------------');
     console.log('Snapshot before update');
@@ -62,10 +65,8 @@ export default class Counter extends React.Component {
     console.log('--------------------------');
     return { prova: 10 };
   }
-  /*
-      getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
-      */
   //  ---------------------------------------------------------------
+  //  componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('Component did update');
     console.log('prevProps.userId ' + prevProps.userId, 'currentProps: ' + this.props.userId);
@@ -73,9 +74,6 @@ export default class Counter extends React.Component {
     console.log(this.state.userName);
     console.log('--------------------------');
   }
-  /*  componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
-   */
-  //  ---------------------------------------------------------------
 
   componentDidCatch(error, info) {
     console.log('Component did catch');
