@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function ControlledEmail(props) {
-    return (
-        <label>
-            <input type="text" />
-        </label>
-    )
+  return (
+    <label>
+      <input type='text' />
+    </label>
+  );
 }
