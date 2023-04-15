@@ -84,9 +84,6 @@ export default class Counter extends React.Component {
     console.log('--------------------------');
     console.log('Component did mount');
   }
-  /*
-   */
-  //  ---------------------------------------------------------------
   componentWillUnmount() {
     console.log('--------------------------');
     console.log('component will unmount');
