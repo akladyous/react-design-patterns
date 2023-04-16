@@ -6,11 +6,7 @@ export default class Counter extends React.Component {
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
-  /* this method let react to know if component outputs is not affected by the current change in state and props.
-      if shouldComponentUpdate return false, then render(), componentDidUpdate() will not be invoked.
-      https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action
-      https://reactjs.org/docs/react-component.html#shouldcomponentupdate
-    */
+
   shouldComponentUpdate(nextProps, nextState) {
     console.log('%cshoud component update', 'color: green');
     console.log('currentState.counter : ', this.state.counter, 'nextState.counter : ', nextState.counter);
