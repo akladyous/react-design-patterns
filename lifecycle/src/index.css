@@ -13,7 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+main {
+  padding: 20px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -26,9 +28,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* place-items: center; */
 }
 
 h1 {
@@ -38,7 +40,7 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid gainsboro;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;

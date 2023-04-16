@@ -3,11 +3,6 @@ import Counter from './Counter.js';
 // import logo from './logo.svg';
 // import './App.css';
 
-const fakeUser = {
-  userId: 10,
-  name: 'John Brain',
-  email: 'john.brain@gmail.com',
-};
 class App extends React.Component {
   constructor(props) {
     super(props);
