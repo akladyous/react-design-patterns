@@ -9,8 +9,8 @@ export default class Counter extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('%cshoud component update', 'color: green');
-    console.log('currentState.counter : ', this.state.counter, 'nextState.counter : ', nextState.counter);
-    console.log('currentProps.userId  : ', this.props.userId, 'nextProps.userId  : ', nextProps.userId);
+    console.log('current State : ', this.state, 'nextState.counter : ', nextState);
+    console.log('current Props : ', this.props, 'nextProps.userId  : ', nextProps);
     return true;
   }
 
