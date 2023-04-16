@@ -14,8 +14,7 @@ class App extends React.Component<iProps, iState> {
     this.handleMount = this.handleMount.bind(this);
   }
   async componentDidMount() {
-    console.group('Main App');
-    console.log('componentDidMount');
+    console.log('Main App - componentDidMount');
   }
 
   handleMount() {
