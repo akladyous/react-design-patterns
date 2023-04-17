@@ -6,10 +6,11 @@ export default class Counter extends React.Component {
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
   }
+  // getDerivedStateFromProps is invoked right before calling the render method, both on the initial mount and on subsequent updates.
+  // getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result of changes in props.
   static getDerivedStateFromProps(props, state) {
-    console.log(
-      'getDerivedStateFromProps is invoked right before calling the render method, both on the initial mount and on subsequent updates.',
-    );
+    console.log('getDerivedStateFromProps');
+    return null;
   }
 
   shouldComponentUpdate(nextProps, nextState) {
