@@ -6,13 +6,14 @@ module.exports = {
   overrides: [
     {
       files: ['*.js', '*.jsx', '*.html'],
-      options: {
-        semi: true,
-        tabWidth: 2,
-      },
     },
   ],
-  plugins: [
-    // require('prettier-plugin-tailwindcss')
-  ],
+  rules: {
+    'react/jsx-first-prop-new-line': [1, 'multiline'],
+
+  },
+  plugins: ['react', 'prettier'],
+
+  extends: ["eslint:recommended", "plugin:react/recommended"]
+
 };
