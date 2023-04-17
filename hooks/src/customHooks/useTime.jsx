@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function useTime() {
+export function useTime() {
   const [time, setTime] = useState(() => new Date());
 
   useEffect(() => {
