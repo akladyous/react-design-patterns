@@ -11,20 +11,25 @@ export default function Counter() {
   }
 
   return (
-    <div>
-      <p>{counter}</p>
-      <button
-        className='border rounded-md bg-slate-100 px-5'
-        onClick={increment}
-      >
-        +
-      </button>
-      <button
-        className='border rounded-md bg-slate-100 px-5'
-        onClick={decrement}
-      >
-        -
-      </button>
+    <div
+      className='w-1/6 border py-3 mx-5'
+      id='counter'
+    >
+      <p className='text-center'>{counter}</p>
+      <div className='flex'>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={increment}
+        >
+          +
+        </button>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={decrement}
+        >
+          -
+        </button>
+      </div>
     </div>
   );
 }
