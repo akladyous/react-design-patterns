@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function CounterWrapper(props) {
-  console.log('CounterWrapper Props: ', props);
-  const [counter, setCounter] = useState(props.initialCount || 0);
+  const { render, initialCount } = props || {};
+  console.log("CounterWrapper Props: ", props);
+  const [counter, setCounter] = useState(initialCount || 0);
 
   useEffect(() => {
-    console.log('CounterWrapper');
+    console.log("CounterWrapper");
   });
 
   function increment() {
@@ -17,7 +18,7 @@ export default function CounterWrapper(props) {
   return (
     <div className="container my-3 border">
       <h4>Render Prop</h4>
-      {props.render(counter, increment, decrement)}
+      {render(counter, increment, decrement)}
     </div>
   );
 }

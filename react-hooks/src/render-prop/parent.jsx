@@ -1,9 +1,8 @@
+import React from "react";
 // import { useEffect } from 'react';
-import Counter from './Counter.jsx';
-import CounterWrapper from './CounterWrapper.jsx';
-import Counter1 from './Counter1.jsx';
-
-import React from 'react';
+// import Counter from "./Counter";
+import CounterWrapper from "./CounterWrapper";
+import Counter1 from "./Counter1";
 
 export default function parent() {
   function callback(counter, increment, decrement) {
@@ -14,7 +13,7 @@ export default function parent() {
 
   return (
     <>
-      <Counter initialCount={10} />
+      {/* <Counter initialCount={10} /> */}
       {/* <CounterWrapper render={callback} /> */}
 
       <CounterWrapper

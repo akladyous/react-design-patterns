@@ -15,6 +15,7 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "react/button-has-type": false
+    "react/button-has-type": 0,
+    "react/react-in-jsx-scope": 0
   }
 }
