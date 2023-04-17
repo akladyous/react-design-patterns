@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import { useEffect } from 'react';
 
 export default function Counter1(props) {
