@@ -1,43 +1,43 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
 
 const initialState = {
-    first_name: "",
-    last_name: "",
-    phone_number: "",
-    email: "",
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    email: '',
 };
 
 const ACTION = {
-    CHANGE_VALUE: "changeValue",
-    SUBMIT_FORM: "submitForm",
+    CHANGE_VALUE: 'changeValue',
+    SUBMIT_FORM: 'submitForm',
 };
 
 const reducer = (state, action) => {
     switch (action.type) {
         case ACTION.CHANGE_VALUE: {
-            console.log("action: ", action)
-            return { ...state, [action.field]: action.payload }
+            console.log('action: ', action);
+            return { ...state, [action.field]: action.payload };
         }
         case ACTION.SUBMIT_FORM: {
-            console.log("action : ", action)
-            console.log("state: ", state)
+            console.log('action : ', action);
+            console.log('state: ', state);
             // break
         }
         // eslint-disable-next-line no-fallthrough
         default: {
-            return state
+            return state;
         }
     }
-}
+};
 export default function User() {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <div className="container border mt-5 w-25">
             <div className="w-100 p-3  border my-2 container">
                 {Object.keys(initialState).map((field, index) => {
                     return (
-                        <div className="input-group mb-1" key={`div-${index}`} >
+                        <div className="input-group mb-1" key={`div-${index}`}>
                             <input
                                 type="text"
                                 name={field}
@@ -45,11 +45,13 @@ export default function User() {
                                 value={state[field]}
                                 onChange={(e) =>
                                     dispatch({
-                                        type: ACTION.CHANGE_VALUE, field: field, payload: e.target.value
+                                        type: ACTION.CHANGE_VALUE,
+                                        field: field,
+                                        payload: e.target.value,
                                     })
                                 }
                                 className="form-control"
-                                placeholder={field.split("_").join(" ")}
+                                placeholder={field.split('_').join(' ')}
                             ></input>
                         </div>
                     );
