@@ -15,21 +15,31 @@ const CounterProvider = ({ children }) => {
     </CounterContext.Provider>
   );
 };
-const Counter = () => {
+const CounterComponent = () => {
   const { count, increment, decrement } = useContext(CounterContext);
   return (
-    <div>
-      <p>{count}</p>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
+    <div className='m-2'>
+      <p className='inline'>{count}</p>
+      <button
+        onClick={increment}
+        className=' mx-3 border rounded-md  px-2'
+      >
+        +
+      </button>
+      <button
+        onClick={decrement}
+        className=' mx-3 border rounded-md  px-2'
+      >
+        -
+      </button>
     </div>
   );
 };
-export default function CounterContext() {
+export default function Counter() {
   return (
     <div>
       <CounterProvider>
-        <Counter />
+        <CounterComponent />
       </CounterProvider>
     </div>
   );
