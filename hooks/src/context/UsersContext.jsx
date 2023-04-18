@@ -3,8 +3,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 const UsersContext = useContext(undefined);
 export const usersState = () => useContext(UsersContext);
 export default function UsersProvider({ children }) {
-  const [users, setUsers] = useState(null);
-  const usersStateTrigger = useRef(false);
+  const [users, setUsers] = useState(undefined);
+  const [state, setState] = useState(false);
   const getUsers = () => {
     usersStateTrigger.current = true;
   };
@@ -33,8 +33,10 @@ export default function UsersProvider({ children }) {
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, getUsers }}>
-      <>{children}</>
-    </UsersContext.Provider>
+    <>
+      <UsersContext.Provider value={{ users, getUsers }}>
+        <>{children}</>
+      </UsersContext.Provider>
+    </>
   );
 }
