@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const UsersContext = createContext(null);
+export const users = () => {
+  return useContext(UsersContext);
+};
 
 export default function UsersProvider({ children }) {
   const [users, setUsers] = useState([]);

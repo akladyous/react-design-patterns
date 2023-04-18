@@ -6,7 +6,7 @@ export default function UsersConsumer() {
   const { users, getUsers } = useContext(UsersContext);
 
   if (users === null || users === undefined) return;
-  debugger;
+
   return (
     <div className='mx-5'>
       <h4>Users List</h4>
