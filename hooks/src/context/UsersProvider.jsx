@@ -2,16 +2,17 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 
 const UsersContext = useContext(undefined);
 export const usersState = () => useContext(UsersContext);
+
 export default function UsersProvider({ children }) {
-  const [users, setUsers] = useState(undefined);
+  const [users, setUsers] = useState([]);
   const [state, setState] = useState(false);
   const getUsers = () => {
-    usersStateTrigger.current = true;
+    setState(true);
   };
 
   useEffect(() => {
     const controller = new AbortController();
-    if (usersStateTrigger) {
+    if (state) {
       fetch('https://jsonplaceholder.typicode.com/users', {
         cache: 'only-if-cached',
         signal: controller.signal,
@@ -27,10 +28,10 @@ export default function UsersProvider({ children }) {
         .finally(controller.abort('request completed'));
     }
     return () => {
-      controller.abort();
-      usersStateTrigger.current = false;
+      // controller.abort();
+      setState(false);
     };
-  }, []);
+  }, [state]);
 
   return (
     <>
