@@ -1,3 +1,10 @@
+import UsersConsumer from './UsersConsumer';
+
 export default function ContextDemo() {
-  return <div>ContextDemo</div>;
+  return (
+    <div>
+      ContextDemo
+      <UsersConsumer />
+    </div>
+  );
 }
