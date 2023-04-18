@@ -1,28 +1,40 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
-const usersContext = useContext(null);
-
-export default function UsersProvider() {
+const UsersContext = useContext(undefined);
+export const usersState = () => useContext(UsersContext);
+export default function UsersProvider({ children }) {
   const [users, setUsers] = useState(null);
-
-  async function getUsers() {}
+  const usersStateTrigger = useRef(false);
+  const getUsers = () => {
+    usersStateTrigger.current = true;
+  };
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch('https://jsonplaceholder.typicode.com/users', {
-      cache: 'only-if-cached',
-      signal: controller.signal,
-      headers: { 'Content-Type': 'Json' },
-    })
-      .then((response) => response.json())
-      .then((data) => setUsers(data))
-      .catch((e) => {
-        e instanceof TypeError && e.message === 'Failed to fetch'
-          ? { status: 504 }
-          : Promise.reject(e);
+    if (usersStateTrigger) {
+      fetch('https://jsonplaceholder.typicode.com/users', {
+        cache: 'only-if-cached',
+        signal: controller.signal,
+        headers: { 'Content-Type': 'application/json' },
       })
-      .finally(controller.abort('request completed'));
+        .then((response) => response.json())
+        .then((data) => setUsers(data))
+        .catch((e) => {
+          e instanceof TypeError && e.message === 'Failed to fetch'
+            ? { status: 504 }
+            : Promise.reject(e);
+        })
+        .finally(controller.abort('request completed'));
+    }
+    return () => {
+      controller.abort();
+      usersStateTrigger.current = false;
+    };
   }, []);
 
-  return <div>UsersProvider</div>;
+  return (
+    <UsersContext.Provider value={{ users, getUsers }}>
+      <>{children}</>
+    </UsersContext.Provider>
+  );
 }
