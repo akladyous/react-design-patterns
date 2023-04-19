@@ -3,6 +3,7 @@ import ContextDemo from './context/ContextDemo';
 import Counter from './context/CounterContext';
 import UseDebugValueDemo from './useDebugValue/UseDebugValueDemo';
 import DeferedDemo from './useDeferredValue/DeferedDemo';
+import Form from './forwardRef/Form';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
 
       {/* <ContextDemo /> */}
       {/* <Counter />  */}
-      <DeferedDemo />
+      {/* <DeferedDemo /> */}
+
+      <Form />
     </div>
   );
 }

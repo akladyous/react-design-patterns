@@ -2,9 +2,8 @@ import TextField from './TextField';
 
 export default function Form() {
   return (
-    <div>
-      Form
-      <form>
+    <div className='mx-auto w-1/3 mt-10'>
+      <form className=' border rounded-md mx-3 p-3'>
         <TextField
           type='text'
           name='firstName'
