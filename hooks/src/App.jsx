@@ -5,6 +5,7 @@ import Counter from './context/CounterContext';
 import UseDebugValueDemo from './useDebugValue/UseDebugValueDemo';
 import DeferedDemo from './useDeferredValue/DeferedDemo';
 import Form from './forwardRef/Form';
+import ModalParent from './useImperativeHandle/ModalParent';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
       {/* <Counter />  */}
       {/* <DeferedDemo /> */}
 
-      <Form />
+      {/* <Form /> */}
+
+      <ModalParent />
     </div>
   );
 }
