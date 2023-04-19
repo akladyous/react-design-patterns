@@ -1,3 +1,4 @@
+import React from 'react';
 import StateDemo from './useState/StateDemo';
 import ContextDemo from './context/ContextDemo';
 import Counter from './context/CounterContext';
@@ -16,9 +17,9 @@ function App() {
       {/* <Counter />  */}
       {/* <DeferedDemo /> */}
 
-      <Form />
+      {/* <Form /> */}
+      <MyComponent />
     </div>
   );
 }
-
 export default App;
