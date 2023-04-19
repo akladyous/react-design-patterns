@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-export default function TextField({ type, name, classes, label, ...rest }) {
+function FormTextField({ type, name, classes, label, ...rest }, ref) {
   const className =
     'mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1';
+
   return (
     <>
       <label
@@ -15,6 +16,7 @@ export default function TextField({ type, name, classes, label, ...rest }) {
       </label>
 
       <input
+        ref={ref}
         type={type}
         name={name}
         className={classes ? classes : className}
@@ -23,3 +25,5 @@ export default function TextField({ type, name, classes, label, ...rest }) {
     </>
   );
 }
+const TextField = forwardRef(FormTextField);
+export default TextField;
