@@ -17,8 +17,7 @@ function App() {
       {/* <Counter />  */}
       {/* <DeferedDemo /> */}
 
-      {/* <Form /> */}
-      <MyComponent />
+      <Form />
     </div>
   );
 }
