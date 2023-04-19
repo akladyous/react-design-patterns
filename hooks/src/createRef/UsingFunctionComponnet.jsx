@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function UsingFunctionComponnet() {
-  const inputRef = React.createRef();
+  const inputRef = React.useRef(null);
   return (
     <div>
       <input
