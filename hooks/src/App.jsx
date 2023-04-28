@@ -6,13 +6,14 @@ import UseDebugValueDemo from './useDebugValue/UseDebugValueDemo';
 import DeferedDemo from './useDeferredValue/DeferedDemo';
 import Form from './forwardRef/Form';
 import ModalParent from './useImperativeHandle/ModalParent';
+import ReducerDemo from './useReducer/ReducerDemo';
 
 function App() {
   return (
     <div className='App px-5'>
       <h1 className='text-4xl text-center'>Main App</h1>
 
-      <StateDemo />
+      {/* <StateDemo /> */}
 
       {/* <ContextDemo /> */}
       {/* <Counter />  */}
@@ -21,6 +22,8 @@ function App() {
       {/* <Form /> */}
 
       {/* <ModalParent /> */}
+
+      <ReducerDemo />
     </div>
   );
 }
