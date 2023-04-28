@@ -1,6 +1,45 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+// import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  // debugger;
+  switch (action.type) {
+    case 'setValue': {
+      return {
+        ...state,
+        [action.payload.targetName]: action.payload.value,
+      };
+    }
+    default:
+      break;
+  }
+}
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  country: '',
+  street: '',
+  city: '',
+  state: '',
+  zip: '',
+};
 
 export default function ReducerForm() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChange = (e) => {
+    dispatch({
+      type: 'setValue',
+      payload: {
+        value: e.target.value,
+        targetName: e.target.name,
+      },
+    });
+  };
+
   return (
     <form>
       <div className='space-y-12'>
@@ -23,10 +62,11 @@ export default function ReducerForm() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  name='first-name'
+                  name='firstName'
                   id='first-name'
                   autoComplete='given-name'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -41,10 +81,11 @@ export default function ReducerForm() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  name='last-name'
+                  name='lastName'
                   id='last-name'
                   autoComplete='family-name'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -63,6 +104,7 @@ export default function ReducerForm() {
                   type='email'
                   autoComplete='email'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -80,6 +122,7 @@ export default function ReducerForm() {
                   name='country'
                   autoComplete='country-name'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 >
                   <option>United States</option>
                   <option>Canada</option>
@@ -98,10 +141,11 @@ export default function ReducerForm() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  name='street-address'
+                  name='street'
                   id='street-address'
                   autoComplete='street-address'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -120,13 +164,14 @@ export default function ReducerForm() {
                   id='city'
                   autoComplete='address-level2'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
 
             <div className='sm:col-span-2'>
               <label
-                htmlFor='region'
+                htmlFor='state'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
                 State / Province
@@ -134,17 +179,18 @@ export default function ReducerForm() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  name='region'
-                  id='region'
+                  name='state'
+                  id='state'
                   autoComplete='address-level1'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
 
             <div className='sm:col-span-2'>
               <label
-                htmlFor='postal-code'
+                htmlFor='zip'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
                 ZIP / Postal code
@@ -152,10 +198,11 @@ export default function ReducerForm() {
               <div className='mt-2'>
                 <input
                   type='text'
-                  name='postal-code'
-                  id='postal-code'
-                  autoComplete='postal-code'
+                  name='zip'
+                  id='zip'
+                  autoComplete='zip'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                  onChange={handleChange}
                 />
               </div>
             </div>
