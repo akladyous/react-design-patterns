@@ -19,7 +19,7 @@ export default function Gallery() {
 
   let sculpture = sculptureList[index];
   return (
-    <>
+    <main className='border p-2 my-3'>
       <button
         onClick={handleNextClick}
         className=' bg-slate-200 px-4 border rounded-md py-1 my-2'
@@ -45,6 +45,6 @@ export default function Gallery() {
         src={sculpture.url}
         alt={sculpture.alt}
       />
-    </>
+    </main>
   );
 }

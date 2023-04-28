@@ -16,7 +16,7 @@ function MutateState({ props }) {
   }
 
   return (
-    <section className='mx-5 my-3 border rounded-md'>
+    <main className='border p-2 my-3'>
       <ul className='flex flex-col'>
         {artists.map((artist) => {
           return (
@@ -43,7 +43,7 @@ function MutateState({ props }) {
           );
         })}
       </ul>
-    </section>
+    </main>
   );
 }
 

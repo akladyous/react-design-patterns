@@ -11,8 +11,8 @@ export default function Counter() {
   }
 
   return (
-    <div
-      className='w-1/6 border py-3 mx-5'
+    <main
+      className='border p-2 my-3'
       id='counter'
     >
       <p className='text-center'>{counter}</p>
@@ -30,6 +30,6 @@ export default function Counter() {
           -
         </button>
       </div>
-    </div>
+    </main>
   );
 }
