@@ -6,15 +6,13 @@ type Props = {};
 export default function UseState({}: Props) {
   const [counter, setCounter] = useState<number>(0);
 
-  const increment: OnMouseClickHandler = () => {
+  const increment: ClickHandler = () => {
     setCounter((value) => value + 1);
   };
 
-  function decrement(event: MouseEvent) {
-    setCounter((value) => value + 1);
-  }
-
-  const prova: ObjectWithMethod = (x) => x;
+  const decrement: ClickHandler = () => {
+    setCounter((value) => value - 1);
+  };
 
   return (
     <main>
