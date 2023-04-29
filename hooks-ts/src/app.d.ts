@@ -7,7 +7,7 @@ interface ClickHandler {
 // typescript function type expression vs function call signatures
 
 type User = {
-  id: number | string;
+  id: number;
   name: string;
   username: string;
   email: string;
@@ -28,4 +28,8 @@ type User = {
     catchPhrase: string;
     bs: string;
   };
+};
+
+type deleteUserSignature = {
+  (event: React.MouseEvent<HTMLElement>, user: User): void;
 };

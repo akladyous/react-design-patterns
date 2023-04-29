@@ -1,10 +1,12 @@
 import UseStateCounter from './UseStateCounter';
-type Props = {};
+import UseStateMutation from './UseStateMutation';
 
-export default function UseStateDemo(_props: Props) {
+export default function UseStateDemo(_props: {}) {
   return (
     <>
       <UseStateCounter />
+      <br />
+      <UseStateMutation />
     </>
   );
 }
