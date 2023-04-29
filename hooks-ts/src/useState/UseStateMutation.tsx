@@ -15,6 +15,14 @@ export default function UseStateMutation(_props: Props) {
   return (
     <section className='border p-2 my-3 mx-5'>
       <div>
+        <div>
+          <button
+            className='border bg-slate-200 p-2 rounded-lg'
+            onClick={() => setUsers(usersData)}
+          >
+            Reset Users
+          </button>
+        </div>
         <ul className='flex flex-col'>
           {users.map((user) => {
             return (
@@ -28,12 +36,6 @@ export default function UseStateMutation(_props: Props) {
                   onClick={(event) => {
                     deleteUser(event, user);
                   }}
-                  // or
-                  // onClick={() => {
-                  //   setArtists(
-                  //     artists.filter((_artist) => _artist.id !== user.id),
-                  //   );
-                  // }}
                 >
                   Delete
                 </button>
