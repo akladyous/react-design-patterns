@@ -1,9 +1,8 @@
-import { MouseEvent, useState } from 'react';
-import {} from 'react';
+import { useState } from 'react';
 
 type Props = {};
 
-export default function UseState({}: Props) {
+export default function UseStateCounter({}: Props) {
   const [counter, setCounter] = useState<number>(0);
 
   const increment: ClickHandler = () => {
@@ -15,9 +14,12 @@ export default function UseState({}: Props) {
   };
 
   return (
-    <main>
-      <main
-        className='border p-2 my-3'
+    <main className='border p-2 my-3 mx-5'>
+      <div className='text-center pb-2 border max-w-fit mx-auto px-4 rounded-lg'>
+        <p>counter component</p>
+      </div>
+      <div
+        className=''
         id='counter'
       >
         <p className='text-center'>{counter}</p>
@@ -35,7 +37,7 @@ export default function UseState({}: Props) {
             -
           </button>
         </div>
-      </main>
+      </div>
     </main>
   );
 }
