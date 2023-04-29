@@ -3,26 +3,19 @@ import {} from 'react';
 
 type Props = {};
 
-type OnClickHandler = {
-  function<T = React.MouseEvent<HTMLButtonElement>>(event: T): void;
-};
-
 export default function UseState({}: Props) {
   const [counter, setCounter] = useState<number>(0);
 
-  function increment(event: MouseEvent) {
+  const increment: OnMouseClickHandler = () => {
     setCounter((value) => value + 1);
-  }
+  };
 
   function decrement(event: MouseEvent) {
     setCounter((value) => value + 1);
   }
 
-  type MySig = (event: React.MouseEvent<HTMLButtonElement>) => never;
+  const prova: ObjectWithMethod = (x) => x;
 
-  function prova(e: React.MouseEvent<HTMLButtonElement>): void {
-    console.log(e.target);
-  }
   return (
     <main>
       <main
