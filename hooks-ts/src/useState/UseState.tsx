@@ -21,7 +21,7 @@ export default function UseState({}: Props) {
   type MySig = (event: React.MouseEvent<HTMLButtonElement>) => never;
 
   function prova(e: React.MouseEvent<HTMLButtonElement>): void {
-    console.log();
+    console.log(e.target);
   }
   return (
     <main>
