@@ -9,8 +9,8 @@ export default function StateDemo() {
     <div>
       {/* <p className='text-center text-blue-400'>{time.toLocaleTimeString()}</p> */}
       <Counter />
-      <Gallery />
       <MutateState />
+      <Gallery />
     </div>
   );
 }
