@@ -14,6 +14,9 @@ export default function UseStateMutation(_props: Props) {
   }, []);
   return (
     <section className='border p-2 my-3 mx-5'>
+      <div className='text-center pb-2 border max-w-fit mx-auto px-4 rounded-lg'>
+        <p>State Mutation Component</p>
+      </div>
       <div>
         <div>
           <button
