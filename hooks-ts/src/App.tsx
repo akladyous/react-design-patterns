@@ -1,3 +1,4 @@
+import UseContextDemo from './useContext/UseContextDemo';
 import UseStateDemo from './useState/UseStateDemo';
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
         <h1 className='text-xl font-bold text-center'>Hello world!</h1>
 
         <div>
-          <UseStateDemo />
+          {/* <UseStateDemo /> */}
+          <UseContextDemo />
         </div>
       </main>
     </>
