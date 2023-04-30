@@ -1,7 +1,7 @@
 type User = {
   id: number;
   name: string;
-  username: string;
+  userName: string;
   email: string;
   address: {
     street: string;
@@ -31,32 +31,10 @@ enum ActionType {
 }
 
 type Action =
-  | { type: ActionType.SET_NAME; payload: string }
-  | { type: ActionType.SET_EMAIL; payload: string }
-  | { type: ActionType.SET_STREET; payload: string }
-  | { type: ActionType.SET_CITY; payload: string }
-  | { type: ActionType.SET_ZIPCODE; payload: string };
-
-const initialState: User = {
-  id: 0,
-  name: '',
-  username: '',
-  email: '',
-  address: {
-    street: '',
-    suite: '',
-    city: '',
-    zipcode: '',
-    geo: {
-      lat: '',
-      lng: '',
-    },
-  },
-  phone: '',
-  website: '',
-  company: {
-    name: '',
-    catchPhrase: '',
-    bs: '',
-  },
-};
+  | { type: 'SET_NAME'; payload: string }
+  | { type: 'SET_EMAIL'; payload: string }
+  | { type: 'SET_STREET'; payload: string }
+  | { type: 'SET_CITY'; payload: string }
+  | { type: 'SET_ZIPCODE'; payload: string }
+  | { type: 'SET_LAT'; payload: string }
+  | { type: 'SET_LNG'; payload: string };
