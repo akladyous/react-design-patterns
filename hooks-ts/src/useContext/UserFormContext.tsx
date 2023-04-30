@@ -1,6 +1,41 @@
-import { ExclamationCircleIcon } from '@heroicons/react/20/solid';
+import { useReducer } from 'react';
 
-export default function UserFormContext(props: {}) {
+interface InitializerType<T> {
+  initialState: T;
+  initializer(): T;
+}
+
+const initialState: User = {
+  id: 0,
+  name: '',
+  username: '',
+  email: '',
+  address: {
+    street: '',
+    suite: '',
+    city: '',
+    zipcode: '',
+    geo: {
+      lat: '',
+      lng: '',
+    },
+  },
+  phone: '',
+  website: '',
+  company: {
+    name: '',
+    catchPhrase: '',
+    bs: '',
+  },
+};
+
+const initializer = (state: User): User => {
+  return state;
+};
+const reducer = () => {};
+
+export default function UserFormContext(_props: {}) {
+  const [state, dispatch] = useReducer(reducer, initialState, initializer);
   return (
     <section className='w-1/2 border rounded-lg p-2 m-2'>
       <div className='text-center pb-2 border max-w-fit mx-auto px-4 rounded-lg'>
@@ -14,30 +49,15 @@ export default function UserFormContext(props: {}) {
           >
             Email
           </label>
-          <div className='relative mt-2 rounded-md shadow-sm'>
+          <div className='mt-2'>
             <input
               type='email'
               name='email'
               id='email'
-              className='block w-full rounded-md border-0 py-1.5 pr-10 text-red-900 ring-1 ring-inset ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6'
+              className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
               placeholder='you@example.com'
-              defaultValue='adamwathan'
-              aria-invalid='true'
-              aria-describedby='email-error'
             />
-            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3'>
-              <ExclamationCircleIcon
-                className='h-5 w-5 text-red-500'
-                aria-hidden='true'
-              />
-            </div>
           </div>
-          <p
-            className='mt-2 text-sm text-red-600'
-            id='email-error'
-          >
-            Not a valid email address.
-          </p>
         </div>
       </form>
     </section>
