@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { usersData } from '../data/usersData';
 
 type Props = {};
-type deleteUserSignature = {
-  (event: React.MouseEvent<HTMLElement>, user: User): void;
-};
 
 export default function UseStateMutation(_props: Props) {
   const [users, setUsers] = useState<User[]>(usersData);
