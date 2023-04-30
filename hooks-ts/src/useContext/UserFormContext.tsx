@@ -1,10 +1,5 @@
 import { useReducer } from 'react';
 
-interface InitializerType<T> {
-  initialState: T;
-  initializer(): T;
-}
-
 const initialState: User = {
   id: 0,
   name: '',
