@@ -1,4 +1,4 @@
-import { produce, Draft } from 'immer';
+import { produce } from 'immer';
 import { useReducer } from 'react';
 
 const initialState = {
@@ -30,8 +30,8 @@ const Actions = {
 function reducer(state, action) {
   switch (action.type) {
     case Actions.UPDATE:
-      debugger;
       return produce(state, (draft) => {
+        // debugger;
         const { property, value } = action.payload;
         const propertyNames = property.split('.');
         let nestedProp = draft;
@@ -40,8 +40,8 @@ function reducer(state, action) {
         }
         nestedProp[propertyNames[propertyNames.length - 1]] = value;
       });
-    case Actions.UPDATE:
-      return { ...state, [action.payload.property]: action.payload.value };
+    // case Actions.UPDATE:
+    //   return { ...state, [action.payload.property]: action.payload.value };
     case Actions.UPDATE_ADDRESS:
       return {
         ...state,
