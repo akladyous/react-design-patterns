@@ -17,7 +17,7 @@ export type User = {
 };
 
 export type PayloadType = {
-  name: string;
+  name: HTMLInputElement.name;
   value: string;
 };
 

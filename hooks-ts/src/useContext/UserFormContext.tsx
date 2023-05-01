@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { produce } from 'immer';
 import { User, ActionType, Action } from './useContext.ts';
 
 const initialState: User = {
@@ -38,7 +39,10 @@ function reducer(state: User, action: Action): User {
           [action.payload.name]: action.payload.value,
         },
       };
-    case ActionType.SET_GEO:
+    case ActionType.SET_GEO: {
+      const updated = produce(state, (driftUser) => {
+        driftUser.address.geo[action.payload.name] = action.payload.value;
+      });
       return {
         ...state,
         address: {
@@ -49,6 +53,8 @@ function reducer(state: User, action: Action): User {
           },
         },
       };
+    }
+
     default:
       return state;
   }
