@@ -125,31 +125,6 @@ export default function UserFormContext(_props: {}) {
     });
   };
 
-  const generateFormFields = (
-    data: User,
-    parentKey?: string,
-  ): JSX.Element[] => {
-    return Object.entries(data).map(([key, value]) => {
-      const fieldName = parentKey ? `${parentKey}.${key}` : key;
-      if (typeof value === 'object' && value !== null) {
-        return generateFormFields(value, fieldName);
-      } else {
-        return (
-          <div key={fieldName}>
-            <label htmlFor={fieldName}>{fieldName}</label>
-            <input
-              type='text'
-              name={fieldName}
-              id={fieldName}
-              value={user[fieldName]}
-              onChange={handleInputChange}
-            />
-          </div>
-        );
-      }
-    });
-  };
-
   return (
     <section className='w-1/2 border rounded-lg p-2 m-2'>
       <div className='text-center pb-2 border max-w-fit mx-auto px-4 rounded-lg'>
