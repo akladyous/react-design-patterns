@@ -29,20 +29,40 @@ const Actions = {
 function reducer(state, action) {
   switch (action.type) {
     case Actions.UPDATE:
-      return {...state, [action.payload.property]: action.payload.value}
+      return { ...state, [action.payload.property]: action.payload.value };
     case Actions.UPDATE_ADDRESS:
-      return {...state, address: {...state.address, [action.payload.property] : action.payload.value}}
+      return {
+        ...state,
+        address: {
+          ...state.address,
+          [action.payload.property]: action.payload.value,
+        },
+      };
     case Actions.UPDATE_GEO:
-      return { ...state, address: { geo: {...state.address.geo, [action.payload.property] : Actions.payload.value}}};
+      return {
+        ...state,
+        address: {
+          geo: {
+            ...state.address.geo,
+            [action.payload.property]: Actions.payload.value,
+          },
+        },
+      };
     case Actions.RESET:
-      return {...state}
+      return { ...state };
     default:
-      return state
+      return state;
+  }
 }
 
-export default function UserFormReducer(props) {
+export default function UserFormReducer() {
   const [user, dispatch] = useReducer(reducer, initialState, initializer);
-
+  const handleChange = (event) => {
+    dispatch({
+      type: Actions.UPDATE,
+      payload: { property: event.target.name, value: event.target.value },
+    });
+  };
   return (
     <section>
       <div></div>
