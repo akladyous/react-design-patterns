@@ -1,4 +1,4 @@
-type User = {
+export type User = {
   id: string;
   firstName: string;
   lastName: string;
@@ -8,7 +8,7 @@ type User = {
     street: string;
     city: string;
     state: string;
-    zipcode: string;
+    zipCode: string;
     geo: {
       lat: string;
       lng: string;
@@ -16,22 +16,27 @@ type User = {
   };
 };
 
-enum ActionType {
-  SET_VALUE = 'SET_VALUE',
-  SET_NESTED_VALUE = 'SET_NESTED_VALUE',
-}
-
-type PayloadType = {
+export type PayloadType = {
   name: string;
   value: string;
 };
 
-type Action =
+export enum ActionType {
+  SET_VALUE = 'SET_VALUE',
+  SET_ADDRESS = 'SET_ADDRESS',
+  SET_GEO = 'SET_GEO',
+}
+
+export type Action =
   | {
       type: ActionType.SET_VALUE;
       payload: PayloadType;
     }
   | {
       type: ActionType.SET_NESTED_VALUE;
+      payload: PayloadType;
+    }
+  | {
+      type: ActionType.SET_GEO;
       payload: PayloadType;
     };

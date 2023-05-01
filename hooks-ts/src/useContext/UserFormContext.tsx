@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { User, ActionType, Action } from './useContext.ts';
 
 const initialState: User = {
   id: '',
@@ -25,10 +26,29 @@ const initializer = (state: User): User => {
   };
 };
 function reducer(state: User, action: Action): User {
+  debugger;
   switch (action.type) {
     case ActionType.SET_VALUE:
       return { ...state, [action.payload.name]: action.payload.value };
-
+    case ActionType.SET_ADDRESS:
+      return {
+        ...state,
+        address: {
+          ...state.address,
+          [action.payload.name]: action.payload.value,
+        },
+      };
+    case ActionType.SET_GEO:
+      return {
+        ...state,
+        address: {
+          ...state.address,
+          geo: {
+            ...state.address.geo,
+            [action.payload.name]: action.payload.value,
+          },
+        },
+      };
     default:
       return state;
   }
@@ -39,6 +59,7 @@ export default function UserFormContext(_props: {}) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
+      // type: 'SET_VALUE',
       type: ActionType.SET_VALUE,
       payload: { name: e.target.name, value: e.target.value },
     });
