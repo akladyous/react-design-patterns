@@ -77,8 +77,6 @@ function reducer(state: User, action: UpdateUserAction): User {
   switch (action.type) {
     case ActionType.UPDATE:
       return produce(state, (draft: Draft<User>) => {
-        debugger;
-
         const { property, value } = action.payload;
         const propertyNames = property.split('.');
         let nestedValue: Draft<any> = draft;
@@ -86,7 +84,6 @@ function reducer(state: User, action: UpdateUserAction): User {
           nestedValue = nestedValue[propertyNames[i]];
         }
         nestedValue[propertyNames[propertyNames.length - 1]] = value;
-        console.log('------');
       });
     // return { ...state, [action.payload.property]: action.payload.value };
     case ActionType.SET_ADDRESS:
