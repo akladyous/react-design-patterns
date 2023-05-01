@@ -1,13 +1,14 @@
 import UsersProvider from './UsersProvider';
 import UsersConsumer from './UsersConsumer';
+import CounterDemo from './CounterDemo';
 
 export default function ContextDemo() {
   return (
     <div>
-      ContextDemo
-      <UsersProvider>
+      {/* <UsersProvider>
         <UsersConsumer />
-      </UsersProvider>
+      </UsersProvider> */}
+      <CounterDemo />
     </div>
   );
 }
