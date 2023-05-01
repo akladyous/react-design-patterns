@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { User } from './types';
 
 interface Props {
@@ -10,7 +10,12 @@ const UserForm: React.FC<Props> = ({ user, onUserChange }) => {
   const [formData, setFormData] = useState(user);
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      | HTMLInputElement
+      | HTMLSelectElement
+      | HTMLTextAreaElement
+      | HTMLOptionElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -38,6 +43,7 @@ const UserForm: React.FC<Props> = ({ user, onUserChange }) => {
               value={formData[fieldName]}
               onChange={handleInputChange}
             />
+            <option value=''></option>
           </div>
         );
       }
