@@ -77,16 +77,16 @@ function reducer(state: User, action: UpdateUserAction): User {
   switch (action.type) {
     case ActionType.UPDATE:
       return produce(state, (draft: Draft<User>) => {
-        // debugger;
+        debugger;
 
         const { property, value } = action.payload;
         const propertyNames = property.split('.');
         let nestedValue: Draft<any> = draft;
-
         for (let i = 0; i < propertyNames.length - 1; i++) {
           nestedValue = nestedValue[propertyNames[i]];
         }
         nestedValue[propertyNames[propertyNames.length - 1]] = value;
+        console.log('------');
       });
     // return { ...state, [action.payload.property]: action.payload.value };
     case ActionType.SET_ADDRESS:
@@ -122,6 +122,31 @@ export default function UserFormContext(_props: {}) {
     dispatch({
       type: ActionType.UPDATE,
       payload: { property: e.target.name, value: e.target.value },
+    });
+  };
+
+  const generateFormFields = (
+    data: User,
+    parentKey?: string,
+  ): JSX.Element[] => {
+    return Object.entries(data).map(([key, value]) => {
+      const fieldName = parentKey ? `${parentKey}.${key}` : key;
+      if (typeof value === 'object' && value !== null) {
+        return generateFormFields(value, fieldName);
+      } else {
+        return (
+          <div key={fieldName}>
+            <label htmlFor={fieldName}>{fieldName}</label>
+            <input
+              type='text'
+              name={fieldName}
+              id={fieldName}
+              value={user[fieldName]}
+              onChange={handleInputChange}
+            />
+          </div>
+        );
+      }
     });
   };
 
