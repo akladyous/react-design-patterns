@@ -1,6 +1,52 @@
 import { useReducer } from 'react';
-import { produce } from 'immer';
-import { User, ActionType, Action } from './useContext.ts';
+import { Draft, produce } from 'immer';
+
+type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    geo: {
+      latitude: string;
+      longitude: string;
+    };
+  };
+};
+
+enum ActionType {
+  UPDATE = 'UPDATE',
+  SET_VALUE = 'SET_VALUE',
+  SET_ADDRESS = 'SET_ADDRESS',
+  SET_GEO = 'SET_GEO',
+}
+
+type PayloadType = {
+  property: string;
+  value: string;
+};
+type UpdateUserAction =
+  | {
+      type: ActionType.UPDATE;
+      payload: PayloadType;
+    }
+  | {
+      type: ActionType.SET_VALUE;
+      payload: PayloadType;
+    }
+  | {
+      type: ActionType.SET_ADDRESS;
+      payload: PayloadType;
+    }
+  | {
+      type: ActionType.SET_GEO;
+      payload: PayloadType;
+    };
 
 const initialState: User = {
   id: '',
@@ -14,8 +60,8 @@ const initialState: User = {
     city: '',
     zipCode: '',
     geo: {
-      lat: '',
-      lng: '',
+      latitude: '',
+      longitude: '',
     },
   },
 };
@@ -26,30 +72,39 @@ const initializer = (state: User): User => {
     id: crypto.randomUUID(),
   };
 };
-function reducer(state: User, action: Action): User {
-  debugger;
+
+function reducer(state: User, action: UpdateUserAction): User {
   switch (action.type) {
-    case ActionType.SET_VALUE:
-      return { ...state, [action.payload.name]: action.payload.value };
+    case ActionType.UPDATE:
+      return produce(state, (draft: Draft<User>) => {
+        // debugger;
+
+        const { property, value } = action.payload;
+        const propertyNames = property.split('.');
+        let nestedValue: Draft<any> = draft;
+
+        for (let i = 0; i < propertyNames.length - 1; i++) {
+          nestedValue = nestedValue[propertyNames[i]];
+        }
+        nestedValue[propertyNames[propertyNames.length - 1]] = value;
+      });
+    // return { ...state, [action.payload.property]: action.payload.value };
     case ActionType.SET_ADDRESS:
       return {
         ...state,
         address: {
           ...state.address,
-          [action.payload.name]: action.payload.value,
+          [action.payload.property]: action.payload.value,
         },
       };
     case ActionType.SET_GEO: {
-      const updated = produce(state, (driftUser) => {
-        driftUser.address.geo[action.payload.name] = action.payload.value;
-      });
       return {
         ...state,
         address: {
           ...state.address,
           geo: {
             ...state.address.geo,
-            [action.payload.name]: action.payload.value,
+            [action.payload.property]: action.payload.value,
           },
         },
       };
@@ -65,9 +120,8 @@ export default function UserFormContext(_props: {}) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
-      // type: 'SET_VALUE',
-      type: ActionType.SET_VALUE,
-      payload: { name: e.target.name, value: e.target.value },
+      type: ActionType.UPDATE,
+      payload: { property: e.target.name, value: e.target.value },
     });
   };
 
@@ -150,7 +204,7 @@ export default function UserFormContext(_props: {}) {
                 id='password'
                 name='password'
                 type='password'
-                value={user.email}
+                value={user.password}
                 onChange={handleChange}
                 className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 placeholder:mx-2 placeholder:capitalize placeholder:text-[.8rem]'
                 placeholder='password'
@@ -158,9 +212,11 @@ export default function UserFormContext(_props: {}) {
             </div>
           </div>
         </div>
-        <div className=' grid grid-cols-1 gap-x-3'>
-          <h4>address</h4>
-          <div className='mb-2 sm:col-span-3'>
+        <div className=' grid grid-cols-1 gap-x-3 border p-2 mt-3 ml-3'>
+          <div className='border-b col-span-3'>
+            <h4 className='capitalize'>address</h4>
+          </div>
+          <div className='mb-2 sm:col-span-3 py-2'>
             <label
               htmlFor='street'
               className='block text-sm font-medium leading-6 text-gray-900 capitalize'
@@ -170,7 +226,7 @@ export default function UserFormContext(_props: {}) {
             <div className='mt-2'>
               <input
                 id='street'
-                name='street'
+                name='address.street'
                 type='text'
                 value={user.address.street}
                 onChange={handleChange}
@@ -190,7 +246,7 @@ export default function UserFormContext(_props: {}) {
             <div className='mt-2'>
               <input
                 id='city'
-                name='city'
+                name='address.city'
                 type='text'
                 value={user.address.city}
                 onChange={handleChange}
@@ -209,7 +265,7 @@ export default function UserFormContext(_props: {}) {
             <div className='mt-2'>
               <input
                 id='state'
-                name='state'
+                name='address.state'
                 type='text'
                 value={user.address.state}
                 onChange={handleChange}
@@ -228,7 +284,7 @@ export default function UserFormContext(_props: {}) {
             <div className='mt-2'>
               <input
                 id='zipCode'
-                name='zipCode'
+                name='address.zipCode'
                 type='text'
                 value={user.address.zipCode}
                 onChange={handleChange}
@@ -239,6 +295,50 @@ export default function UserFormContext(_props: {}) {
           </div>
         </div>
         {/*  */}
+        <div className=' grid grid-cols-2 gap-x-3 border p-2 mt-6 ml-6'>
+          <div className='border-b col-span-3'>
+            <h4 className='capitalize'>geo Location</h4>
+          </div>
+          <div className='mb-2 sm:col-span-1 py-2'>
+            <label
+              htmlFor='street'
+              className='block text-sm font-medium leading-6 text-gray-900 capitalize'
+            >
+              latitude
+            </label>
+            <div className='mt-2'>
+              <input
+                id='latitude'
+                name='address.geo.latitude'
+                type='text'
+                value={user.address.geo.latitude}
+                onChange={handleChange}
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 placeholder:mx-2 placeholder:capitalize placeholder:text-[.8rem]'
+                placeholder='latitude'
+              />
+            </div>
+          </div>
+          {/* ----------------- */}
+          <div className='mb-2 sm:col-span-1 py-2'>
+            <label
+              htmlFor='street'
+              className='block text-sm font-medium leading-6 text-gray-900 capitalize'
+            >
+              longitude
+            </label>
+            <div className='mt-2'>
+              <input
+                id='longitude'
+                name='address.geo.longitude'
+                type='text'
+                value={user.address.geo.longitude}
+                onChange={handleChange}
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 placeholder:mx-2 placeholder:capitalize placeholder:text-[.8rem]'
+                placeholder='longitude'
+              />
+            </div>
+          </div>
+        </div>
       </form>
     </section>
   );
