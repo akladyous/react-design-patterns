@@ -16,9 +16,9 @@ function App() {
       {/* <StateDemo /> */}
       {/* <ReducerDemo /> */}
 
-      <ContextDemo />
+      {/* <ContextDemo /> */}
       {/* <Counter />  */}
-      {/* <DeferedDemo /> */}
+      <DeferedDemo />
 
       {/* <Form /> */}
 

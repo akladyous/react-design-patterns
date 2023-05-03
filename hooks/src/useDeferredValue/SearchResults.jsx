@@ -1,12 +1,9 @@
+import { useEffect, useState } from 'react';
 import { fetchData } from './data';
 
-// Note: this component is written using an experimental API
-// that's not yet available in stable versions of React.
-
-// For a realistic example you can follow today, try a framework
-// that's integrated with Suspense, like Relay or Next.js.
-
 export default function SearchResults({ query }) {
+  const [photos, setPhotos] = useState(null);
+  const [error, setError] = useState(null);
   if (query === '') {
     return null;
   }
@@ -18,6 +15,21 @@ export default function SearchResults({ query }) {
       </p>
     );
   }
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch('https://jsonplaceholder.typicode.com/photos', {
+      signal: controller,
+    })
+      .then((response) => response.json())
+      .then((data) => setPhotos(data))
+      .catch((error) => {
+        setError(errro);
+        console.log(error);
+      });
+    return () => controller.abort();
+  }, []);
+
   return (
     <ul>
       {albums.map((album) => (
@@ -32,7 +44,6 @@ export default function SearchResults({ query }) {
 // This is a workaround for a bug to get the demo running.
 // TODO: replace with real implementation when the bug is fixed.
 function use(promise) {
-  debugger;
   if (promise.status === 'fulfilled') {
     return promise.value;
   } else if (promise.status === 'rejected') {

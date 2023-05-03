@@ -27,11 +27,11 @@ export default function UsersProvider({ children }) {
           // e instanceof TypeError && e.message === 'Failed to fetch'
           //   ? { status: 504 }
           //   : Promise.reject(e);
-        })
-        .finally(() => controller.abort('request completed'));
+        });
     }
     return () => {
       // controller.abort();
+      controller.abort('request completed');
       setState(false);
     };
   }, [state]);
