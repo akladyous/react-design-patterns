@@ -9,6 +9,7 @@ export default function SearchResults({ query }) {
     controller.signal.addEventListener('abort', () => {
       console.log('%cERROR: The request has been aborted', 'color: red');
     });
+
     fetch('https://jsonplaceholder.typicode.com/photos', {
       signal: controller.signal,
     })
