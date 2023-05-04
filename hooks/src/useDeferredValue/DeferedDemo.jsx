@@ -1,5 +1,6 @@
 import { Suspense, useState, useDeferredValue } from 'react';
 import SearchResults from './SearchResults';
+import QueryData from './QueryData';
 
 export default function DeferedDemo() {
   const [query, setQuery] = useState('');
@@ -25,7 +26,8 @@ export default function DeferedDemo() {
           />
         </div>
         <Suspense fallback={<h2>Loading...</h2>}>
-          <SearchResults query={deferredQuery} />
+          {/* <SearchResults query={deferredQuery} /> */}
+          <QueryData query={deferredQuery} />
         </Suspense>
       </div>
     </section>
