@@ -3,20 +3,20 @@ import SearchResults from './SearchResults';
 
 export default function DeferedDemo() {
   const [query, setQuery] = useState('');
-  const deferredQuery = useDeferredValue(query);
+  const deferredQuery = useDeferredValue(query, { timeoutMs: 1000 });
   return (
     <section className='w-1/3'>
       <div>
         <label
-          htmlFor='firstName'
+          htmlFor='photo'
           className='block text-sm font-medium leading-6 text-gray-900 capitalize'
         >
           search albums
         </label>
         <div className='mt-2'>
           <input
-            id='firstName'
-            name='firstName'
+            id='photo'
+            name='photo'
             type='text'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
