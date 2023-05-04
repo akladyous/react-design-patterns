@@ -32,8 +32,8 @@ export default function DeferedDemo() {
         </div>
         <div className='my-2 p-2 border rounded-md'>
           <Suspense fallback={Loader}>
-            {/* <SearchResults query={query} /> */}
-            <QueryData query={query} />
+            <SearchResults query={query} />
+            {/* <QueryData query={query} /> */}
           </Suspense>
         </div>
       </div>
