@@ -2,22 +2,16 @@ import { Suspense, useState, useDeferredValue, useEffect } from 'react';
 import SearchResults from './SearchResults';
 import QueryData from './QueryData';
 
+function Loader() {
+  console.log('loader');
+  return <h2>🌀 Loading...</h2>;
+}
 export default function DeferedDemo() {
   const [query, setQuery] = useState('');
-  const deferredQuery = useDeferredValue(query, { timeoutMs: 1000 });
-  console.group(DeferedDemo.displayName);
-  useEffect(() => {
-    console.log(
-      `%cComponentDidMount ${SearchResults.displayName}`,
-      'color: green; font-weight: bold',
-    );
-    return () => {
-      console.log('componentUnMount');
-    };
-  }, []);
-  console.groupEnd();
+  const deferredQuery = useDeferredValue(query);
+
   return (
-    <section className='w-1/3'>
+    <section className='w-[80%]'>
       <div>
         <label
           htmlFor='photo'
@@ -36,10 +30,12 @@ export default function DeferedDemo() {
             placeholder='first name'
           />
         </div>
-        <Suspense fallback={<h2>Loading...</h2>}>
-          {/* <SearchResults query={deferredQuery} /> */}
-          <QueryData query={deferredQuery} />
-        </Suspense>
+        <div className='my-2 p-2 border rounded-md'>
+          <Suspense fallback={Loader}>
+            {/* <SearchResults query={query} /> */}
+            <QueryData query={query} />
+          </Suspense>
+        </div>
       </div>
     </section>
   );
