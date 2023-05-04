@@ -9,7 +9,7 @@ export default function QueryData({ query }) {
   controller.signal.addEventListener('abort', () => {
     console.log('%cSignal Abort listner triggerd', 'color: red');
   });
-  const cazzo = use(fetchData);
+
   useEffect(() => {
     if (query === '') return;
     fetchData()
@@ -42,27 +42,3 @@ export default function QueryData({ query }) {
   );
 }
 QueryData.displayName = 'QueryData';
-
-function use(promise) {
-  debugger;
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      (result) => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      (reason) => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
