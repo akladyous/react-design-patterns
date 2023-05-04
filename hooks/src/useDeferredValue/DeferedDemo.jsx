@@ -1,10 +1,21 @@
-import { Suspense, useState, useDeferredValue } from 'react';
+import { Suspense, useState, useDeferredValue, useEffect } from 'react';
 import SearchResults from './SearchResults';
 import QueryData from './QueryData';
 
 export default function DeferedDemo() {
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query, { timeoutMs: 1000 });
+  console.group(DeferedDemo.displayName);
+  useEffect(() => {
+    console.log(
+      `%cComponentDidMount ${SearchResults.displayName}`,
+      'color: green; font-weight: bold',
+    );
+    return () => {
+      console.log('componentUnMount');
+    };
+  }, []);
+  console.groupEnd();
   return (
     <section className='w-1/3'>
       <div>
@@ -33,3 +44,4 @@ export default function DeferedDemo() {
     </section>
   );
 }
+DeferedDemo.displayName = 'DeferedDemo';

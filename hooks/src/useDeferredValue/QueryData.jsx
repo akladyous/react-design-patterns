@@ -3,6 +3,7 @@ import { fetchData } from '../util/fetchData';
 
 export default function QueryData({ query }) {
   const [photos, setPhotos] = useState(null);
+  console.group(DeferedDemo.displayName);
 
   useEffect(() => {
     // debugger;
@@ -33,3 +34,4 @@ export default function QueryData({ query }) {
     </section>
   );
 }
+QueryData.displayName = 'QueryData';

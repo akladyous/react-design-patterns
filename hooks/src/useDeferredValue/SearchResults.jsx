@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 
 export default function SearchResults({ query }) {
+  console.group(SearchResults.displayName);
   const [photos, setPhotos] = useState(null);
+  const controller = new AbortController();
+  controller.signal.addEventListener('abort', () => {
+    console.log('%cThe request has been aborted', 'color: red');
+  });
   useEffect(() => {
-    // debugger;
+    console.log(
+      `%cComponentDidMount ${SearchResults.displayName}`,
+      'color: green; font-weight: bold',
+    );
     if (query === '') return;
-    const controller = new AbortController();
-    controller.signal.addEventListener('abort', () => {
-      console.log('%cERROR: The request has been aborted', 'color: red');
-    });
 
     fetch('https://jsonplaceholder.typicode.com/photos', {
       signal: controller.signal,
@@ -19,12 +23,15 @@ export default function SearchResults({ query }) {
         console.log(err);
       })
       .finally(console.log('%cSuccess!', 'color: green'));
+
     return () => {
       console.log('%cCleanUp Function', 'color: orange; font-weight:');
-      controller.abort('aborting fetch request on Component unMount');
+      controller.abort();
     };
   }, [query]);
+
   if (!photos) return null;
+  console.groupEnd();
   return (
     <section>
       <ul>
@@ -37,3 +44,4 @@ export default function SearchResults({ query }) {
     </section>
   );
 }
+SearchResults.displayName = 'SearchResults';
