@@ -9,8 +9,8 @@ import {
 export default function NumbersList(_props) {
   // const bigArray = [...Array(2000).keys()];
   const bigArray = [];
-  for (let i = 0; i < 100000; i++) {
-    bigArray.push(i.toString().padStart(6, '0'));
+  for (let i = 0; i < 20000; i++) {
+    bigArray.push(i.toString().padStart(5, '0'));
   }
   const [items, setItems] = useState(bigArray);
   const [query, setQuery] = useState('');
@@ -69,9 +69,14 @@ export default function NumbersList(_props) {
       {/* ------------------------------- */}
       <div className='my-2 p-2 border rounded-md'>
         {isPending ? <Spinner /> : null}
-        <ul>
+        <ul className='flex flex-wrap items-center justify-around'>
           {items.map((item) => (
-            <li key={item}>{item}</li>
+            <li
+              className='border p-1 m-1 '
+              key={item}
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </div>
