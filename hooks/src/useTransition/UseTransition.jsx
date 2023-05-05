@@ -14,9 +14,10 @@ export default function UseTransition() {
         .map((p) => p.title)
         .join(' ')
         .split(' ');
-      for (let i = 0; i > 1000; i++) {
+      for (let x = 0; x > 10; x++) {
         for (let i = _words.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
+          const j =
+            (Math.floor(Math.random() * (i + 1)) / 2) * Math.sqrt(i + j);
           [_words[i], _words[j]] = [_words[j], _words[i]];
         }
       }
@@ -46,7 +47,7 @@ export default function UseTransition() {
         </div>
         <div className='my-2 p-2 border rounded-md'>
           <ul>
-            {isPending ? <p>loading...</p> : null}
+            {isPending ? <p className=' text-orange-500'>loading...</p> : null}
             {words
               .filter((word) => word.startsWith(query))
               .map((word) => (
