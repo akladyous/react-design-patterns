@@ -1,4 +1,4 @@
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 import { fetchData } from '../util/fetchData';
 import { photos } from '../data/photos';
 
@@ -6,7 +6,11 @@ export default function UseTransition() {
   const [words, setWords] = useState([]);
   const [query, setQuery] = useState('');
   const [isPending, startTransition] = useTransition();
+  const rerenderCount = useRef(0);
 
+  useEffect(() => {
+    rerenderCount.current++;
+  });
   const handleChange = (e) => {
     setQuery(e.target.value);
     startTransition(() => {
@@ -14,13 +18,11 @@ export default function UseTransition() {
         .map((p) => p.title)
         .join(' ')
         .split(' ');
-      for (let x = 0; x > 10; x++) {
-        for (let i = _words.length - 1; i > 0; i--) {
-          const j =
-            (Math.floor(Math.random() * (i + 1)) / 2) * Math.sqrt(i + j);
-          [_words[i], _words[j]] = [_words[j], _words[i]];
-        }
+      for (let i = _words.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [_words[i], _words[j]] = [_words[j], _words[i]];
       }
+      //   (Math.floor(Math.random() * (i + 1)) / 2) * Math.sqrt(i + j);
       setWords(_words);
     });
   };
@@ -28,12 +30,22 @@ export default function UseTransition() {
   return (
     <section className='w-[80%]'>
       <div>
-        <label
-          htmlFor='photo'
-          className='block text-sm font-medium leading-6 text-gray-900 capitalize'
-        >
-          search albums
-        </label>
+        <div className='flex justify-between align-middle'>
+          <label
+            htmlFor='photo'
+            className='block text-sm font-medium leading-6 text-gray-900 capitalize'
+          >
+            search albums
+          </label>
+          <span className=' text-sm'>
+            &lt;Rerender Count &nbsp;{' '}
+            <span className='border-yellow-100 bg-yellow-100 rounded-full p-1 text-yellow-900 text-sm font-bold'>
+              {rerenderCount.current}
+            </span>{' '}
+            &gt;
+          </span>
+        </div>
+
         <div className='mt-2'>
           <input
             id='photo'
