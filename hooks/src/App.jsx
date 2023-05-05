@@ -7,6 +7,7 @@ import DeferedDemo from './useDeferredValue/DeferedDemo';
 import Form from './forwardRef/Form';
 import ModalParent from './useImperativeHandle/ModalParent';
 import ReducerDemo from './useReducer/ReducerDemo';
+import UseTransitionDemo from './useTransition/UseTransitionDemo';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
 
       {/* <StateDemo /> */}
       {/* <ReducerDemo /> */}
+      <UseTransitionDemo />
 
       {/* <ContextDemo /> */}
       {/* <Counter />  */}
-      <DeferedDemo />
+      {/* <DeferedDemo /> */}
 
       {/* <Form /> */}
 
