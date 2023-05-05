@@ -1,7 +1,7 @@
 import { useDeferredValue, useEffect, useTransition } from 'react';
 import { fetchData } from '../util/fetchData';
 
-export default function WordList({ query }) {
+export default function ImagesList({ query }) {
   const [photos, setPhotos] = useState([]);
   const [isPending, startTransition] = useTransition();
   const deferedQuery = useDeferredValue(query);
