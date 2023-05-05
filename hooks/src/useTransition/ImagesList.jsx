@@ -1,4 +1,10 @@
-import { useDeferredValue, useEffect, useTransition } from 'react';
+import {
+  useDeferredValue,
+  useEffect,
+  useTransition,
+  useState,
+  Suspense,
+} from 'react';
 import { fetchData } from '../util/fetchData';
 
 export default function ImagesList({ query }) {
@@ -7,19 +13,24 @@ export default function ImagesList({ query }) {
   const deferedQuery = useDeferredValue(query);
 
   useEffect(() => {
-    setTimeout(() => {
-      startTransition(() => {
-        fetchData().then((data) => setPhotos(data.photos));
+    startTransition(() => {
+      setPhotos([]);
+      fetchData().then((data) => {
+        setPhotos(data.photos);
       });
     });
   }, []);
   return (
     <section>
       <div className='my-2 p-2 border rounded-md'>
+        {isPending ? <p className=' text-orange-500'>loading...</p> : null}
         <ul>
-          {isPending ? <p className=' text-orange-500'>loading...</p> : null}
           {photos
-            .filter((photo) => photo.title.includes(query))
+            .filter((photo) => {
+              return deferedQuery && deferedQuery.length > 0
+                ? photo.title.includes(deferedQuery)
+                : true;
+            })
             .map((photo) => (
               <li key={photo.id}>{photo.title}</li>
             ))}
@@ -27,4 +38,8 @@ export default function ImagesList({ query }) {
       </div>
     </section>
   );
+}
+function Loading() {
+  console.log('loading');
+  return <p className=' text-orange-500'>loading...</p>;
 }

@@ -1,9 +1,21 @@
-import { useEffect, useRef, useState, useTransition } from 'react';
-import ImagesList from './ImagesList';
+import {
+  lazy,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+  Suspense,
+} from 'react';
+// import ImagesList from './ImagesList';
+const ImagesList = lazy(() => import('./ImagesList'));
 
 export default function UseTransition() {
   const [query, setQuery] = useState('');
+  const rerenderCount = useRef(0);
 
+  useEffect(() => {
+    rerenderCount.current++;
+  });
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
@@ -39,6 +51,9 @@ export default function UseTransition() {
           />
         </div>
       </div>
+      <Suspense fallback={<p className=' text-blue-700'>loading...</p>}>
+        <ImagesList query={query} />
+      </Suspense>
     </section>
   );
 }
