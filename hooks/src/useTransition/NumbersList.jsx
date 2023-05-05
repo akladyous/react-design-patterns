@@ -68,7 +68,7 @@ export default function NumbersList(_props) {
       </div>
       {/* ------------------------------- */}
       <div className='my-2 p-2 border rounded-md'>
-        {isPending ? <p className=' text-orange-500'>loading...</p> : null}
+        {isPending ? <Spinner /> : null}
         <ul>
           {items.map((item) => (
             <li key={item}>{item}</li>
@@ -77,4 +77,8 @@ export default function NumbersList(_props) {
       </div>
     </section>
   );
+}
+
+function Spinner() {
+  return <p className='font-bold text-orange-500'>loading...</p>;
 }
