@@ -1,3 +1,3 @@
-export default function User(user: {}) {
-  return <div></div>;
+export default function User(user: User) {
+  return <div className='border border-lg flex'></div>;
 }
