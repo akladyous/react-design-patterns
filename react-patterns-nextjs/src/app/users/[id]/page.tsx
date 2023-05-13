@@ -1,4 +1,4 @@
-export default function User(user: User) {
+export default function UserInfo(user: User) {
   return (
     <div className='border border-lg'>
       <div>
