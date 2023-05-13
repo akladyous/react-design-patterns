@@ -5,7 +5,12 @@ interface RegularListProps<T> {
   resourceName: string;
   itemComponent: FC<{ key: string; resourceName: string }>;
 }
-//asdasdasdasdasd
+
+interface ItemListProps {
+  items: object[];
+  resourceName: string;
+}
+
 export function RegularList<T>(props: RegularListProps<T>): JSX.Element {
   const { items, resourceName, itemComponent: ItemComponent } = props;
   return (
@@ -23,7 +28,7 @@ export function RegularList<T>(props: RegularListProps<T>): JSX.Element {
 // how to use RegularList passing items & resourceName and itemComponent
 
 export const Prova = ({ childrenElement }: AppProps) => {
-  return <div>{childrenElement}</div>;
+  return <div>{}</div>;
 };
 
 // const ProvaComponent: React.FC<{ key: string; resourceName: string }> = ({
