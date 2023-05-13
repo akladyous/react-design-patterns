@@ -7,8 +7,9 @@ export default async function UserInfo({ params: { id }, searchParams }) {
   console.log('user : ', user);
 
   return user ? (
-    <>
-      <p>{JSON.stringify(user, null, 2)}</p>
-    </>
+    <div>
+      {/* <p>{JSON.stringify(user, null, 2)}</p> */}
+      <p>{user.name}</p>
+    </div>
   ) : null;
 }
