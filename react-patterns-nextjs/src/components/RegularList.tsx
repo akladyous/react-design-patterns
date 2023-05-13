@@ -1,28 +1,17 @@
-import { FC, ReactNode } from 'react';
+import React from 'react';
 
 interface RegularListProps<T> {
   items: T[];
   resourceName: string;
-  itemComponent: FC<{ key: string; resourceName: string }>;
+  itemComponent: React.FC<{ key: string; resourceName: string }>;
 }
 
-interface Items<T> {
-  items: T[];
-}
-interface ListItemProps {
-  key: string;
-  resourceName: string;
-}
-interface ListItemsProps<T> extends ListItemProps, Items<T> {
-  itemComponent: FC<ListItemProps>;
-}
-
-export function RegularList<T>(props: ListItemsProps<User>) {
-  const { items, resourceName, itemComponent: Item } = props;
+export function RegularList<T>(props: RegularListProps<T>): JSX.Element {
+  const { items, resourceName, itemComponent: ItemComponent } = props;
   return (
     <>
-      {items.map((item) => (
-        <Item
+      {items.map((item, index) => (
+        <ItemComponent
           key={crypto.randomUUID()}
           resourceName={resourceName}
           {...{ [resourceName]: item }}
@@ -32,16 +21,32 @@ export function RegularList<T>(props: ListItemsProps<User>) {
   );
 }
 
-export function RegularList2<T>(props: RegularListProps<T>): JSX.Element {
-  const { items, resourceName, itemComponent: ItemComponent } = props;
+// Define a sample component that will render each item
+const SampleItemComponent: React.FC<{ key: string; resourceName: string }> = ({
+  key,
+  resourceName,
+}) => {
   return (
-    <>
-      {items.map((item, index) => (
-        <ItemComponent
-          key={crypto.randomUUID()}
-          resourceName={resourceName}
-        />
-      ))}
-    </>
+    <div>
+      {resourceName}: {key}
+    </div>
   );
-}
+};
+
+// Example usage of RegularList
+const App = () => {
+  const items = ['Item 1', 'Item 2', 'Item 3'];
+  const resourceName = 'Resource';
+
+  return (
+    <div>
+      <RegularList
+        items={items}
+        resourceName={resourceName}
+        itemComponent={SampleItemComponent}
+      />
+    </div>
+  );
+};
+
+export default App;
