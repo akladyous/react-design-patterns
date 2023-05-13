@@ -11,11 +11,18 @@ interface ItemListProps {
   resourceName: string;
 }
 interface ItemsListProps {
-  itemComponent: FC<ItemsListProps>;
+  itemComponent: FC<ItemListProps>;
 }
 
-export const Prova = ({ childrenElement }: AppProps) => {
-  return <div>{}</div>;
+export const Prova = ({ itemComponent: Item }: ItemsListProps) => {
+  return (
+    <>
+      <Item
+        items={[{}, {}]}
+        resourceName='adasd'
+      />
+    </>
+  );
 };
 
 export function RegularList<T>(props: RegularListProps<T>): JSX.Element {
