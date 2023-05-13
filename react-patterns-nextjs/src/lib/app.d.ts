@@ -33,3 +33,11 @@ type setStateProps<T> = {
   setState: React.Dispatch<React.SetStateAction<T>>;
   children?: React.ReactNode;
 };
+
+type ResourceOptions =
+  | { table: 'users' }
+  | { table: 'comments' }
+  | { table: 'photos' }
+  | { table: 'album' };
+
+// const x: ResourceOptions = { table: 'album' };
