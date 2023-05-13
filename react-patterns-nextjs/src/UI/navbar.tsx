@@ -1,4 +1,4 @@
-import NavLink from './NavLink';
+import NavLink from '@/ui/NavLink';
 const _routes: string[] = [
   'albums',
   'comments',
@@ -18,7 +18,7 @@ export default function NavBar() {
             href={`/${route}`}
             className='hover:bg-slate-300 p-2'
           >
-            Home
+            {route.charAt(0).toUpperCase().concat(route.slice(1))}
           </NavLink>
         ))}
       </nav>
