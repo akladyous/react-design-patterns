@@ -1,3 +1,10 @@
+declare interface AppProps {
+  children?: React.ReactNode;
+  childrenElement: React.JSX.Element;
+  style?: React.CSSProperties;
+  onChange: React.FormEventHandler<HTMLElement>;
+}
+
 type User = {
   id: number;
   name: string;
@@ -20,4 +27,9 @@ type User = {
     catchPhrase: string;
     bs: string;
   };
+};
+
+type setStateProps<T> = {
+  setState: React.Dispatch<React.SetStateAction<T>>;
+  children?: React.ReactNode;
 };
