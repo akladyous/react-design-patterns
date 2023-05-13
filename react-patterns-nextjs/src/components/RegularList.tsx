@@ -1,5 +1,9 @@
 import { users } from '@/data/users';
 
+type Prettify<T> = {
+  [k in keyof T]: T[k];
+} & {};
+
 interface Props<T> {
   items: T[];
   resourceName: string;
