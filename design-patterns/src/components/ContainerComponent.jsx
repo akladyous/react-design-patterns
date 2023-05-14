@@ -37,19 +37,3 @@ export default function ContainerComponent({ children, id }) {
     </>
   );
 }
-
-/*
-  useEffect(() => {
-    if (!id) return;
-    (async () => {
-      const baseURL = 'https://jsonplaceholder.typicode.com/users';
-      const url = id ? baseURL.concat('/', id) : baseURL;
-      const response = await fetch(url);
-      if (!response.ok) {
-        return;
-      }
-      setUser(await response.json());
-    })();
-  }, [id]);
-
-*/
