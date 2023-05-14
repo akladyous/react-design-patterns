@@ -11,6 +11,13 @@ export default function NavBar() {
           Home
         </Link>
         <Link
+          className='hover:bg-green-400 p-2'
+          href='/faker'
+        >
+          Faker Test
+        </Link>
+
+        <Link
           className='hover:bg-slate-300 p-2 '
           href='/list-items'
         >
