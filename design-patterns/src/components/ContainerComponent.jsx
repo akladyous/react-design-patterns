@@ -1,10 +1,10 @@
-import { URLPattern } from 'next/server';
 import { useEffect, useState } from 'react';
 
 export default function ContainerComponent({ children, id }) {
   const [user, setUser] = useState();
 
   useEffect(() => {
+    if (!id) return;
     (async () => {
       const baseURL = 'https://jsonplaceholder.typicode.com/users';
       const url = id ? baseURL.concat('/', id) : baseURL;
@@ -17,7 +17,7 @@ export default function ContainerComponent({ children, id }) {
     })();
   }, [id]);
 
-  if (!data) return undefined;
+  if (!user) return undefined;
 
   return (
     <>

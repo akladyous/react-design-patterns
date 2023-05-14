@@ -12,16 +12,16 @@ export default function NavBar() {
         </Link>
         <Link
           className='hover:bg-slate-300 p-2 '
-          href='/posts'
+          href='/list-items'
         >
-          Posts
+          List Items
         </Link>
 
         <Link
           className='hover:bg-slate-300 p-2 '
-          href='/users'
+          href='/container-component'
         >
-          Users
+          Container Component
         </Link>
       </nav>
     </header>
