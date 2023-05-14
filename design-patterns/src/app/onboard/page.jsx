@@ -14,7 +14,10 @@ export default function OnBoardHome({ children }) {
 
   return (
     <>
-      <OnBoardingData>
+      <OnBoardingData
+        currentIndex={currentIndex}
+        onNext={onNext}
+      >
         <StepOne />
         <StepTwo />
         <StepThree />
