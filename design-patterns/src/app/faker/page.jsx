@@ -1,4 +1,4 @@
-import { generateFakeUsers, sampleUser } from '@/lib/fakeUsers';
+import { generateFakeUsers } from '@/lib/fakeUsers';
 
 export default async function Faker(props) {
   const user = await generateFakeUsers();

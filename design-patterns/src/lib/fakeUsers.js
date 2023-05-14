@@ -7,7 +7,8 @@ export const generateFakeUsers = async (timeout = 2000, totalRecords = 10) => {
       const data = [];
       for (let i = 0; i < totalRecords; i++) {
         const sample = sampleUser();
-        data.push(sample);
+
+        data.push({ ...sample, id: i + 1 });
       }
       resolve(data);
     }, timeout);
@@ -32,7 +33,7 @@ const generateUserInfo = () => {
   let firstName = faker.person.firstName(sex);
   let lastName = faker.person.lastName(sex);
   return {
-    user_id: faker.string.uuid(),
+    id: faker.string.uuid(),
     firstName: firstName,
     lastName: lastName,
     userName: faker.internet.userName({ firstName: firstName, lastName }),

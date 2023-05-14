@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { generateFakeUsers } from '@/lib/fakeUsers';
 
 export default function ContainerComponent({ children, id }) {
   const [user, setUser] = useState();
@@ -9,7 +10,6 @@ export default function ContainerComponent({ children, id }) {
       const baseURL = 'https://jsonplaceholder.typicode.com/users';
       const url = id ? baseURL.concat('/', id) : baseURL;
       const response = await fetch(url);
-
       if (!response.ok) {
         return;
       }
