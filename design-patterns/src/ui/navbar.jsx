@@ -30,6 +30,13 @@ export default function NavBar() {
         >
           Container Component
         </Link>
+
+        <Link
+          className='hover:bg-slate-300 p-2 '
+          href='/hoc'
+        >
+          HeigerOrderComponent
+        </Link>
       </nav>
     </header>
   );
