@@ -1,5 +1,5 @@
 'use client';
-
+import EditUserForm from './EditUserForm';
 import { withUser } from '@/components/heigher order component/withUser';
 
 const PrettyPrintUser = (user) => {
@@ -15,8 +15,13 @@ const PrettyPrintUser = (user) => {
 export default function HOC() {
   const UserPrettified = withUser(PrettyPrintUser, 1);
   return (
-    <section>
-      <UserPrettified />
-    </section>
+    <>
+      <section>
+        <UserPrettified />
+      </section>
+      <section>
+        <EditUserForm />
+      </section>
+    </>
   );
 }
