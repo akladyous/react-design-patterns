@@ -1,10 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-
 export default function Home({ children }) {
-  const [counter, setCounter] = useState(0);
-
   return (
     <section
       id='home'
