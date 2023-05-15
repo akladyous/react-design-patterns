@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 const capitalize = (str) => (str ? str.charAt(0).toUpperCase().slice(1) : null);
 
 export const withEditable = (Component, resourcePath, resourceName) => {
+  // resourcePath = /users/1234
+  // resourceName = 'user'
+
   return (props) => {
     const [oridinalData, setOriginalData] = useState(null);
     const [data, setData] = useState(null);
