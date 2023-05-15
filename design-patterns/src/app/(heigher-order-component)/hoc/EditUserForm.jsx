@@ -4,6 +4,7 @@ import { withEditableUser } from '@/components/heigher order component/withEdita
 export default function EditUser({ user, onChange, onSave, resetUser }) {
   console.log('EditUserForm  user: ', user);
   if (!user) return null;
+
   return (
     <>
       <section>
