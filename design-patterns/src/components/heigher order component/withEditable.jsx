@@ -16,5 +16,9 @@ export const withEditable = (Component, resourcePath, resourceName) => {
           setData(resourceData);
         })();
     }, [resourcePath, resourceName]);
+
+    const onChange = (_changes) => {
+      setData({ ...data, ..._changes });
+    };
   };
 };
