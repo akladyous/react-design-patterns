@@ -1,6 +1,8 @@
 import { generateFakeUsers } from '@/lib/fakeUsers';
 import { useEffect } from 'react';
 
+const capitalize = (str) => (str ? str.charAt(0).toUpperCase().slice(1) : null);
+
 export const withEditable = (Component, resourcePath, resourceName) => {
   return (props) => {
     const [oridinalData, setOriginalData] = useState(null);
@@ -20,5 +22,25 @@ export const withEditable = (Component, resourcePath, resourceName) => {
     const onChange = (_changes) => {
       setData({ ...data, ..._changes });
     };
+
+    const onSave = async () => {
+      fetch('asdasd');
+      const response = await fetch(`some url/${resourcePath}/${resourceName}`, {
+        method: 'POST',
+        body: data,
+      });
+      if (response.ok) {
+        const _data = await response.json();
+        setOriginalData(_data);
+        setData(_data);
+      }
+    };
+
+    const onReset = () => {
+      setData(oridinalData);
+    };
+
+    if (!data && oridinalData) return undefined;
+    return <Component {...props} />;
   };
 };

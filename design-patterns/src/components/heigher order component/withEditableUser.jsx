@@ -26,7 +26,7 @@ export const withEditableUser = (Wrapper, user_id) => {
         method: 'post',
       });
       if (response.ok) {
-        const data = await response.data;
+        const data = await response.json();
         setOriginalUser(response.data);
         setUser(data);
       }
