@@ -1,9 +1,11 @@
+'use client';
 import { withEditableUser } from '@/components/heigher order component/withEditableUser';
 
-export default EditUserForm = withEditableUser(
-  ({ user, onChange, onSave, resetUser }) => {
-    debugger;
-    return (
+export default function EditUser({ user, onChange, onSave, resetUser }) {
+  console.log('EditUserForm  user: ', user);
+  if (!user) return null;
+  return (
+    <>
       <section>
         <form>
           <div>
@@ -24,6 +26,7 @@ export default EditUserForm = withEditableUser(
           </div>
         </form>
       </section>
-    );
-  },
-);
+    </>
+  );
+}
+export const EditUserForm = withEditableUser(EditUser, 1);

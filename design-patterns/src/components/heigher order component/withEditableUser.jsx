@@ -6,13 +6,15 @@ export const withEditableUser = (Wrapper, user_id) => {
     const [originalUser, setOriginalUser] = useState(undefined);
     const [user, setUser] = useState(undefined);
 
-    useEffect(async () => {
-      if (!user_id) return null;
-      const users = await generateFakeUsers();
-      const user = users.find((u) => (u.id = user_id));
-      setUser(user);
-      setOriginalUser(user);
-    });
+    useEffect(() => {
+      (async () => {
+        if (!user_id) return null;
+        const users = await generateFakeUsers();
+        const user = users.find((u) => (u.id = user_id));
+        setUser(user);
+        setOriginalUser(user);
+      })();
+    }, [user_id]);
 
     const onChangeUser = (changes) => {
       setUser({ ...user, ...changes });
@@ -33,7 +35,7 @@ export const withEditableUser = (Wrapper, user_id) => {
       setUser(originalUser);
     };
 
-    return (
+    return user ? (
       <Wrapper
         {...props}
         user={user}
@@ -41,6 +43,6 @@ export const withEditableUser = (Wrapper, user_id) => {
         onSave={onSaveUser}
         resetUser={resetUser}
       />
-    );
+    ) : null;
   };
 };
