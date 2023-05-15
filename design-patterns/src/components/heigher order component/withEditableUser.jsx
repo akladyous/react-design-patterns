@@ -8,8 +8,8 @@ export const withEditableUser = (Wrapper, user_id) => {
 
     console.log(prova);
     useEffect(() => {
+      if (!user_id) return null;
       (async () => {
-        if (!user_id) return null;
         const users = await generateFakeUsers();
         const user = users.find((u) => (u.id = user_id));
         setUser(user);
