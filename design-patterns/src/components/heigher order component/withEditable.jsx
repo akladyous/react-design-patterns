@@ -24,7 +24,6 @@ export const withEditable = (Component, resourcePath, resourceName) => {
     };
 
     const onSave = async () => {
-      fetch('asdasd');
       const response = await fetch(`some url/${resourcePath}/${resourceName}`, {
         method: 'POST',
         body: data,
@@ -41,6 +40,19 @@ export const withEditable = (Component, resourcePath, resourceName) => {
     };
 
     if (!data && oridinalData) return undefined;
-    return <Component {...props} />;
+
+    const resourceProps = {
+      [resourceName]: data,
+      [`onChange${capitalize(resourceName)}`]: onChange,
+      [`onSave${capitalize(resourceName)}`]: onSave,
+      [`onReset${capitalize(resourceName)}`]: onReset,
+    };
+
+    return (
+      <Component
+        {...props}
+        {...resourceProps}
+      />
+    );
   };
 };
