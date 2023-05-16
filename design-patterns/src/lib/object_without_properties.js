@@ -33,4 +33,17 @@ var myObject = {
   prop4: 'four',
 };
 var propToExclude = myObject.propToExclude,
-  remainingProps = _object_without_properties(myObject, ['propToExclude']);
+  remainingProps = _object_without_properties(myObject, ['four']);
+
+function exclude(source = {}, excluded = []) {
+  if (source === null || source === undefined) return {};
+  const target = {};
+
+  for (let key in source) {
+    if (excluded.indexOf(key) >= 0) continue;
+    if (source.hasHownProperty(key)) {
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
