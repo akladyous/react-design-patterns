@@ -1,31 +1,36 @@
 'use client';
 
-import { useState } from 'react';
-
-const Counter = ({ render }) => {
-  const [count, setCount] = useState(0);
-
-  const incCount = (v) => setCount((_count) => (_count + v ? v : 1));
-  const decCount = (v) => setCount((_count) => (_count - v ? v : 1));
-
-  return <>{render(count, setCount)}</>;
-};
+import Counter from '@/components/render props/counter-example/Counter';
+import CounterOne from '@/components/render props/counter-example/CounterOne';
+import CounterTwo from '@/components/render props/counter-example/CounterTwo';
 
 export default function RenderPropsHome({ children }) {
   return (
-    <section>
-      <h3>Render Props PAge</h3>
+    <section className='border m-2'>
+      <h3 className='text-center'>Render Props PAge</h3>
 
-      <div>
-        <button
-          id='myButton'
-          className='rounded-lg bg-violet-700'
-          ref={mouseRef}
-        >
-          Save Changes
-        </button>
-      </div>
-      <div>{children}</div>
+      <Counter
+        render={(count, incCount, decCount) => {
+          return (
+            <CounterOne
+              counter={count}
+              increment={incCount}
+              decrement={decCount}
+            />
+          );
+        }}
+      />
+      <Counter
+        render={(count, incCount, decCount) => {
+          return (
+            <CounterTwo
+              counter={count}
+              increment={incCount}
+              decrement={decCount}
+            />
+          );
+        }}
+      />
     </section>
   );
 }
