@@ -1,6 +1,9 @@
+'use client';
+
 import { useState } from 'react';
 
-export default function withHover(Element) {
+export function withHover(Element) {
+  debugger;
   return (props) => {
     const [hovering, setHover] = useState(false);
 
@@ -23,7 +26,7 @@ export default function withHover(Element) {
           onMouseOver={onMouseOver}
           onMouseOut={onMouseOut}
         />
-        <span class='absolute top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100'>
+        <span className='absolute top-10 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100'>
           ✨ You hover me!
         </span>
       </div>
