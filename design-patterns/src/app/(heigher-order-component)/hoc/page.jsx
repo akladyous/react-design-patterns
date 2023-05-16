@@ -4,8 +4,6 @@ import { withUser } from '@/components/heigher order component/withUser';
 import { withHover } from '@/components/heigher order component/withHover';
 
 const PrettyPrintUser = (user) => {
-  debugger;
-  console.log('user : ', user);
   return (
     <div>
       <pre>

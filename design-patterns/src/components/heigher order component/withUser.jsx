@@ -8,6 +8,10 @@ export const withUser = (Component, user_id) => {
     const [user, setUser] = useState(undefined);
 
     useEffect(() => {
+      if (!user_id) {
+        return undefined;
+      }
+
       (async () => {
         const users = await generateFakeUsers();
         if (users) {

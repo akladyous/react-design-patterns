@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 export function withHover(Element) {
-  debugger;
   return (props) => {
     const [hovering, setHover] = useState(false);
 
