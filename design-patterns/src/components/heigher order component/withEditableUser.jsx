@@ -6,7 +6,6 @@ export const withEditableUser = (Wrapper, user_id) => {
     const [originalUser, setOriginalUser] = useState(undefined);
     const [user, setUser] = useState(undefined);
 
-    console.log(prova);
     useEffect(() => {
       if (!user_id) return null;
       (async () => {

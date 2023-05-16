@@ -12,16 +12,14 @@ const PrettyPrintUser = (user) => {
   );
 };
 
+const UserPrettified = withUser(PrettyPrintUser, 1);
 export default function HOC() {
-  const UserPrettified = withUser(PrettyPrintUser, 1);
   return (
     <section className='mx-3 p-2'>
       <div>
         <UserPrettified />
       </div>
-      <div className='w-1/2'>
-        <EditUserForm />
-      </div>
+      <div className='w-1/2'>{/* <EditUserForm /> */}</div>
     </section>
   );
 }
