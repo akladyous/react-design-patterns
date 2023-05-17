@@ -34,3 +34,13 @@ class App extends React.Component {
 }
 
 export default App;
+// Counter.shouldComponentUpdate = function (nextProps, nextState) {
+//   console.log('nextProps : ', nextProps);
+//   console.log('nextState : ', nextState);
+// };
+/*
+useEffect lifeCycle:
+  - componentDidMount
+  - componentDidUpdate
+  - componentWillUnmount
+*/
