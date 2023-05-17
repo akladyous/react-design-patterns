@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export default function Counter({ render }) {
-  const [count, setCount] = useState(0);
+export default function Counter({ render, initialValue = 0 }) {
+  const [count, setCount] = useState(initialValue);
 
   const incCount = () => {
     setCount((_count) => _count + 1);

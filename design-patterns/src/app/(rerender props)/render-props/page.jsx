@@ -10,6 +10,7 @@ export default function RenderPropsHome({ children }) {
       <h3 className='text-center'>Render Props PAge</h3>
 
       <Counter
+        initialValue={10}
         render={(count, incCount, decCount) => {
           return (
             <CounterOne
@@ -21,6 +22,7 @@ export default function RenderPropsHome({ children }) {
         }}
       />
       <Counter
+        initialValue={50}
         render={(count, incCount, decCount) => {
           return (
             <CounterTwo
