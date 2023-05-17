@@ -12,3 +12,7 @@ export default function Counter({ render, initialValue = 0 }) {
 
   return <>{render(count, incCount, decCount)}</>;
 }
+// Counter.shouldComponentUpdate = function (nextProps, nextState) {
+//   console.log('nextProps : ', nextProps);
+//   console.log('nextState : ', nextState);
+// };
