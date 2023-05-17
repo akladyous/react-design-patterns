@@ -4,7 +4,7 @@ export default function CounterTwo({ counter, increment, decrement }) {
   return (
     <>
       <main className='border-2 border-red-500 p-2 my-3 w-1/3 mx-auto'>
-        <h4 className='text-center'>Counter One</h4>
+        <h4 className='text-center'>Counter Two</h4>
 
         <div
           className=''

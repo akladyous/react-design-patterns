@@ -7,7 +7,7 @@ import CounterTwo from '@/components/render props/counter-example/CounterTwo';
 export default function RenderPropsHome({ children }) {
   return (
     <section className='border m-2'>
-      <h3 className='text-center'>Render Props PAge</h3>
+      <h3 className='text-center'>Render Props Page</h3>
 
       <Counter
         initialValue={10}

@@ -4,10 +4,12 @@ export default function Counter({ render, initialValue = 0 }) {
   const [count, setCount] = useState(initialValue);
 
   const incCount = (v) => {
-    setCount((_count) => (_count + v ? v : 1));
+    let value = parseInt(v) || 1;
+    setCount((_count) => _count + value);
   };
   const decCount = (v) => {
-    setCount((_count) => (_count - v ? v : 1));
+    let value = parseInt(v) || 1;
+    setCount((_count) => _count - value);
   };
 
   return <>{render(count, incCount, decCount)}</>;

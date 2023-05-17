@@ -1,6 +1,8 @@
 'use client';
 
 export default function CounterOne({ counter, increment, decrement }) {
+  // const value = 123;
+  let value;
   return (
     <>
       <main className='border-2 border-red-500 p-2 my-3 w-1/3 mx-auto'>
@@ -13,7 +15,9 @@ export default function CounterOne({ counter, increment, decrement }) {
           <div className='flex my-2'>
             <button
               className='border rounded-md bg-slate-100 px-5 mx-auto'
-              onClick={increment}
+              onClick={(_e) => {
+                increment(value);
+              }}
             >
               +
             </button>
@@ -22,7 +26,9 @@ export default function CounterOne({ counter, increment, decrement }) {
             </p>
             <button
               className='border rounded-md bg-slate-100 px-5 mx-auto'
-              onClick={decrement}
+              onClick={(_e) => {
+                decrement(value);
+              }}
             >
               -
             </button>
