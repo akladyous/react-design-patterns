@@ -21,11 +21,6 @@ export const withUser = (Component, user_id) => {
       })();
     }, [user_id]);
 
-    return (
-      <Component
-        user={user}
-        {...props}
-      />
-    );
+    return <Component user={user} {...props} />;
   };
 };
