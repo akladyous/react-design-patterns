@@ -13,7 +13,7 @@ export const withEditable = (Component, resourcePath, resourceName) => {
 
     useEffect(() => {
       if (!(resourcePath | resourceName))
-        return undefined(async () => {
+        return (async () => {
           const response = await generateFakeUsers();
           // const responseData = await response.json();
           const resourceData = response.find((u) => (u.id = resourceName));
@@ -51,11 +51,6 @@ export const withEditable = (Component, resourcePath, resourceName) => {
       [`onReset${capitalize(resourceName)}`]: onReset,
     };
 
-    return (
-      <Component
-        {...props}
-        {...resourceProps}
-      />
-    );
+    return <Component {...props} {...resourceProps} />;
   };
 };
