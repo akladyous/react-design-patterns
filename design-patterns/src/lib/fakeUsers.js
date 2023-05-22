@@ -1,4 +1,4 @@
-import { faker, fakerEN, fakerEN_US } from '@faker-js/faker';
+import { faker, fakerEN_US } from '@faker-js/faker';
 
 export const generateFakeUsers = async (timeout = 2000, totalRecords = 10) => {
   return new Promise((resolve, reject) => {
