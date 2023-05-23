@@ -1,20 +1,27 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
 
   function increment() {
+    console.log(
+      'before : ',
+      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
+        .currentDispatcher,
+    );
     setCounter((count) => count + 1);
+    console.log(
+      'after : ',
+      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
+        .currentDispatcher,
+    );
   }
   function decrement() {
     setCounter((count) => count - 1);
   }
 
   return (
-    <main
-      className='border p-2 my-3'
-      id='counter'
-    >
+    <main className='border p-2 my-3' id='counter'>
       <p className='text-center'>{counter}</p>
       <div className='flex'>
         <button
