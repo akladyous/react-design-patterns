@@ -27,3 +27,8 @@ export default function HOC() {
     </section>
   );
 }
+
+const compose =
+  (...functions) =>
+  (...args) =>
+    functions.forEach((fn) => fn?.(...args));
