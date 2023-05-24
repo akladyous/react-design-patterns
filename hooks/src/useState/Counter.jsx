@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    // setCounter(counter + 1);
+  }, []);
 
   function increment() {
     console.log(
       'before : ',
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
-        .currentDispatcher,
+        .ReactCurrentDispatcher,
     );
     setCounter((count) => count + 1);
     console.log(
       'after : ',
-      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner
-        .currentDispatcher,
+      React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
+        .ReactCurrentDispatcher,
     );
   }
   function decrement() {
