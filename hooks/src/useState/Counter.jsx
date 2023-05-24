@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react';
 export default function Counter() {
   const [counter, setCounter] = useState(0);
 
-  // useEffect(() => {
-  //   setCounter(counter + 1);
-  // }, []);
+  useEffect(() => {
+    console.log('rerender');
+    //   setCounter(counter + 1);
+  }, []);
+
+  console.log("inside the component : 'Counter'", counter); // will always printout 1 less the actual value
 
   function increment() {
     console.log(
@@ -19,6 +22,7 @@ export default function Counter() {
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
         .ReactCurrentDispatcher,
     );
+    console.log("inside Event Handeler : 'Counter'", counter); // will always printout 1 less the actual value
   }
   function decrement() {
     setCounter((count) => count - 1);
