@@ -17,6 +17,7 @@ class Toggle extends Component {
     defaultOn: false,
     onToggle: () => {},
   };
+
   state = {
     on: this.getOn({ on: this.props.defaultOn }),
   };

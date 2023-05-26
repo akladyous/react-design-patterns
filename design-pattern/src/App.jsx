@@ -4,20 +4,23 @@ function App() {
   return (
     <>
       <Toggle>
-        {({ on, getTogglerProps }) => (
-          <div>
-            <button
-              {...getTogglerProps({
-                onClick() {
-                  alert('you clicked!');
-                },
-              })}
-            >
-              Toggle me
-            </button>
-            <div>{on ? 'Toggled On' : 'Toggled Off'}</div>
-          </div>
-        )}
+        {({ on, getTogglerProps }) => {
+          console.log;
+          return (
+            <div>
+              <button
+                {...getTogglerProps({
+                  onClick() {
+                    alert('you clicked!');
+                  },
+                })}
+              >
+                Toggle me
+              </button>
+              <div>{on ? 'Toggled On' : 'Toggled Off'}</div>
+            </div>
+          );
+        }}
       </Toggle>
     </>
   );
