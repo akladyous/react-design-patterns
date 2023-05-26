@@ -30,12 +30,17 @@ class Toggle extends Component {
     return this.props.on !== undefined;
   }
 
-  getTogglerProps = (props = {}) => ({
-    'aria-controls': 'target',
-    'aria-expanded': Boolean(this.getOn()),
-    ...props,
-    onClick: callAll(props.onClick, this.toggle),
-  });
+  getTogglerProps = (props = {}) => {
+    debugger;
+    const allProps = {
+      'aria-controls': 'target',
+      'aria-expanded': Boolean(this.getOn()),
+      ...props,
+      onClick: callAll(props.onClick, this.toggle),
+    };
+
+    return allProps;
+  };
 
   getTogglerStateAndHelpers() {
     return {
