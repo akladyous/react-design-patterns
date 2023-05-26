@@ -31,7 +31,6 @@ class Toggle extends Component {
   }
 
   getTogglerProps = (props = {}) => {
-    debugger;
     const allProps = {
       'aria-controls': 'target',
       'aria-expanded': Boolean(this.getOn()),
