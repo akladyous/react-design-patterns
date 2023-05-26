@@ -9,6 +9,13 @@ const randomInteger = (min = 1, max = 1000) => {
 
 const randomBoolean = () => Math.random() < 0.5;
 
+const TodosCrudActions = {
+  create: function () {},
+  read: function () {},
+  update: function () {},
+  delete: function () {},
+};
+
 export default function UseStateTodos() {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState(initialState.slice(0, 5));

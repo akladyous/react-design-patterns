@@ -1,3 +1,14 @@
+const template = {
+  userId: 1,
+  id: 1,
+  title: 'delectus aut autem',
+  completed: false,
+  dueDate: '',
+  repeat: '',
+  remindMe: false,
+  category: [],
+};
+
 export const todos = [
   {
     userId: 1,
