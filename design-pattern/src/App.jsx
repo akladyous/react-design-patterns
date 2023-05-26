@@ -5,7 +5,6 @@ function App() {
     <>
       <Toggle>
         {({ on, getTogglerProps }) => {
-          console.log(getTogglerProps);
           return (
             <div>
               <button
