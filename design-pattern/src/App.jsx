@@ -1,7 +1,11 @@
-import Toggle from './prop-getters-pattern/Toggle';
+import HookUseState from './test/HookUseState';
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <HookUseState />
+    </>
+  );
 }
 
 export default App;
