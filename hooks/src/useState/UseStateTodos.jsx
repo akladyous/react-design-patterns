@@ -4,7 +4,7 @@ import { todos as initialState } from '../data/todos';
 const randomInteger = (min = 1, max = 1000) => {
   const range = max - min;
   const randomNumber = Math.floor(Math.random() * range + min);
-  return randomInteger;
+  return randomNumber;
 };
 
 const randomBoolean = () => Math.random() < 0.5;
@@ -57,7 +57,7 @@ export default function UseStateTodos() {
                 ...todos,
                 {
                   userId: todos.length + 1,
-                  id: todo.length + 1,
+                  id: randomInteger(todo.length + 1, 2000),
                   title: todo,
                   completed: randomBoolean(),
                 },
@@ -67,34 +67,37 @@ export default function UseStateTodos() {
             add
           </button>
         </div>
-        {todos.reverse().map((todo) => (
-          <div
-            className='flex justify-start align-middle space-x-3'
-            key={crypto.randomUUID()}
-          >
-            <p
-              className={`my-1 px-2 rounded-lg mr-2 ${
-                todo.completed ? 'line-through' : 'no-underline'
-              }`}
+        {todos
+          .slice(0)
+          .reverse()
+          .map((todo) => (
+            <div
+              className='flex justify-start align-middle space-x-3'
+              key={crypto.randomUUID()}
             >
-              {todo.title}
-            </p>
+              <p
+                className={`my-1 px-2 rounded-lg mr-2 ${
+                  todo.completed ? 'line-through' : 'no-underline'
+                }`}
+              >
+                {todo.title}
+              </p>
 
-            <button
-              className='my-1 px-2 rounded-lg mr-2 bg-slate-100'
-              onClick={() => handleCompleted(todo.id)}
-            >
-              {todo.completed ? 'Completed' : 'Pending'}
-            </button>
+              <button
+                className='my-1 px-2 rounded-lg mr-2 bg-slate-100'
+                onClick={() => handleCompleted(todo.id)}
+              >
+                {todo.completed ? 'Completed' : 'Pending'}
+              </button>
 
-            <button
-              className='border px-2 rounded-lg'
-              onClick={handleDelete.bind(this, todo.id)}
-            >
-              delete
-            </button>
-          </div>
-        ))}
+              <button
+                className='border px-2 rounded-lg'
+                onClick={handleDelete.bind(this, todo.id)}
+              >
+                delete
+              </button>
+            </div>
+          ))}
       </section>
     </>
   );
