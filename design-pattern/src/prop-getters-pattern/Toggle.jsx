@@ -38,7 +38,7 @@ class Toggle extends Component {
       ...props,
       onClick: callAll(props.onClick, this.toggle),
     };
-
+    console.log(allProps);
     return allProps;
   };
 
