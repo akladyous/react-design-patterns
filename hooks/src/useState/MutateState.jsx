@@ -9,10 +9,10 @@ let initialArtists = [
 function MutateState({ props }) {
   const [artists, setArtists] = useState(initialArtists);
 
-  function deleteByName(event, name) {
+  function deleteByName(event, artist) {
     console.log(event.target);
-    console.log('name : ', name);
-    setArtists(artists.filter((_artist) => _artist.id !== name.id));
+    console.log('artist : ', artist);
+    setArtists(artists.filter((_artist) => _artist.id !== artist.id));
   }
 
   return (
@@ -20,10 +20,7 @@ function MutateState({ props }) {
       <ul className='flex flex-col'>
         {artists.map((artist) => {
           return (
-            <div
-              className='flex m-1'
-              key={`${artist.name}_${artist.id}`}
-            >
+            <div className='flex m-1' key={`${artist.name}_${artist.id}`}>
               <li className='w-1/4 inline'>{artist.name}</li>
               <button
                 className=' bg-slate-100 px-2 rounded-sm capitalize'
