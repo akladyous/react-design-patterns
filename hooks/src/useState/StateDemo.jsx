@@ -15,9 +15,9 @@ export default function StateDemo() {
       {/* <UseStateCounter /> */}
       <UseStateTodos />
 
-      {/* <Counter /> */}
-      {/* <MutateState /> */}
-      {/* <Gallery /> */}
+      <Counter />
+      <MutateState />
+      <Gallery />
     </div>
   );
 }

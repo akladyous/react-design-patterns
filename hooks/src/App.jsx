@@ -14,9 +14,9 @@ function App() {
     <div className='App px-5'>
       <h1 className='text-4xl text-center'>Main App</h1>
 
-      <StateDemo />
+      {/* <StateDemo /> */}
 
-      {/* <ReducerDemo /> */}
+      <ReducerDemo />
 
       {/* <UseTransitionDemo /> */}
 

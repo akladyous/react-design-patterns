@@ -3,6 +3,7 @@ const template = {
   id: 1,
   title: 'delectus aut autem',
   completed: false,
+  important: false,
   dueDate: '',
   repeat: '',
   remindMe: false,
