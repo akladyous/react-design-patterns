@@ -27,6 +27,7 @@ const Actions = {
   UPDATE_GEO: 'UPDATE_GEO',
   RESET: 'RESET',
 };
+
 function reducer(state, action) {
   switch (action.type) {
     case Actions.UPDATE:
@@ -78,7 +79,6 @@ export default function UserFormReducer() {
   return (
     <section>
       <div></div>
-      return (
       <section className='w-1/2 border rounded-lg p-2 m-2'>
         <div className='text-center pb-2 border max-w-fit mx-auto px-4 rounded-lg'>
           <p>Context Component</p>
