@@ -1,4 +1,5 @@
 'use client';
+
 import {
   DocumentIcon,
   EnvelopeIcon,
@@ -8,17 +9,33 @@ import {
 
 import { useState } from 'react';
 
-type Todo = {
+import { todos as todosData } from '@/data/todos';
+
+type TodoList = Todo[];
+type TodoType = {
   id: number;
   title: string;
   body: string;
   createdAt: Date;
+  updatedAt: Date;
+  important: boolean;
+  planed: Date;
+  reminder: Date;
+  dueDate: Date;
+  file: Blob;
+};
+
+type Todo = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 };
 
 export default function TodosHome(props: {}) {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(todosData);
 
-  function createTodo(): void | undefined {
+  function createTodo() {
     const currentDate = new Date();
     return undefined;
   }
@@ -33,19 +50,13 @@ export default function TodosHome(props: {}) {
   const todoActions = {};
 
   return (
-    <section className='flex flex-col'>
+    <section className='flex flex-col border m-3 min-h-screen'>
       {todos.map((todo: Todo) => {
         return (
-          <>
-            <title key={todo.id}>{todo.title}</title>
-            <p>{todo.body}</p>
-            <div className='flex justify-end items-center'>
-              <DocumentIcon onClick={createTodo()} /> &nbsp;
-              <EnvelopeIcon /> &nbsp;
-              <TrashIcon /> &nbsp;
-              <PencilSquareIcon />
-            </div>
-          </>
+          <div key={todo.id}>
+            <p key={todo.id}>{todo.title}</p>
+            {/* <p>{todo.body}</p> */}
+          </div>
         );
       })}
     </section>
