@@ -37,6 +37,7 @@ export default function TodosHome(props: {}) {
 
   function createTodo() {
     const currentDate = new Date();
+    console.log(currentDate);
     return undefined;
   }
   function readTodo(): Todo | undefined {
@@ -56,6 +57,16 @@ export default function TodosHome(props: {}) {
           <div key={todo.id}>
             <p key={todo.id}>{todo.title}</p>
             {/* <p>{todo.body}</p> */}
+            <div className='flex justify-end items-center'>
+              <DocumentIcon
+                className='h-5 w-5 text-red-500'
+                onClick={createTodo}
+              />{' '}
+              &nbsp;
+              <EnvelopeIcon className='h-5 w-5' /> &nbsp;
+              <TrashIcon className='h-5 w-5' /> &nbsp;
+              <PencilSquareIcon className='h-5 w-5' />
+            </div>
           </div>
         );
       })}
