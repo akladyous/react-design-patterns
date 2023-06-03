@@ -4,25 +4,29 @@ export default function CounterUseState() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    console.log('rerender');
+    console.log('Rerender...');
     //   setCounter(counter + 1);
   }, []);
 
-  console.log('inside component - COUNTER: ', counter); // will always printout 1 less the actual value
+  console.log('inside component - COUNTER       : ', counter);
 
   function increment() {
     console.log(
-      'Inside Event Handler - BEFORE : ',
+      'Inside Event Handler - BEFORE    : ',
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
         .ReactCurrentDispatcher,
     );
     setCounter((count) => count + 1);
     console.log(
-      'Inside Event Handler - AFTER : ',
+      'Inside Event Handler - AFTER     : ',
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
         .ReactCurrentDispatcher,
     );
-    console.log("inside Event Handeler : 'Counter'", counter); // will always printout 1 less the actual value
+    console.log(
+      "inside Event Handler - 'Counter' : ",
+      counter,
+      ' will always printout 1 less the actual value',
+    );
   }
   function decrement() {
     setCounter((count) => count - 1);
