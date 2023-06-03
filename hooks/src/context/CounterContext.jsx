@@ -20,22 +20,16 @@ const CounterComponent = () => {
   return (
     <div className='m-2'>
       <p className='inline'>{count}</p>
-      <button
-        onClick={increment}
-        className=' mx-3 border rounded-md  px-2'
-      >
+      <button onClick={increment} className=' mx-3 border rounded-md  px-2'>
         +
       </button>
-      <button
-        onClick={decrement}
-        className=' mx-3 border rounded-md  px-2'
-      >
+      <button onClick={decrement} className=' mx-3 border rounded-md  px-2'>
         -
       </button>
     </div>
   );
 };
-export default function Counter() {
+export default function CounterProviderComponent() {
   return (
     <div>
       <CounterProvider>

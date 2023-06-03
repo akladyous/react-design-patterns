@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function BasicCounter() {
   const [counter, setCounter] = useState(0);
@@ -12,6 +12,10 @@ export default function BasicCounter() {
   function decrement(value) {
     setCounter((c) => c - 1);
   }
+
+  useEffect(() => {
+    console.log('rerender');
+  }, []);
 
   return (
     <main className='border p-2 my-3' id='counter'>
