@@ -15,16 +15,22 @@ export default function UseStateCounter(props) {
   }, []);
 
   return (
-    <>
-      <div className='counter-component'>
-        <button className='counter-btn' onClick={increment}>
+    <main className='border p-2 my-3' id='counter'>
+      <p className='text-center'>{counter}</p>
+      <div className='flex'>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={increment}
+        >
           +
         </button>
-        <p>{counter}</p>
-        <button className='counter-btn' onClick={decrement}>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={decrement}
+        >
           -
         </button>
       </div>
-    </>
+    </main>
   );
 }
