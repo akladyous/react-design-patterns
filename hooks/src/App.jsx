@@ -16,7 +16,7 @@ function App() {
 
       {/* <StateDemo /> */}
 
-      <ReducerDemo />
+      {/* <ReducerDemo /> */}
 
       {/* <UseTransitionDemo /> */}
 

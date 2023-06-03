@@ -18,11 +18,11 @@ type TodoType = {
   body: string;
   createdAt: Date;
   updatedAt: Date;
-  important: boolean;
-  planed: Date;
-  reminder: Date;
-  dueDate: Date;
-  file: Blob;
+  important?: boolean;
+  planed?: Date;
+  reminder?: Date;
+  dueDate?: Date;
+  attachment?: Blob[];
 };
 
 type Todo = {
