@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
-export default function Counter() {
+export default function BasicCounter() {
   const [counter, setCounter] = useState(0);
+
+  console.log("inside the component : 'Counter'", counter); // will always printout 1 less the actual value
 
   function increment(value) {
     setCounter((c) => c + 1);
