@@ -14,16 +14,14 @@ export default function UseStateDemo() {
   // const time = useTime();
   return (
     <div>
-      {/* <p className='text-center text-blue-400'>{time.toLocaleTimeString()}</p> */}
+      {/* <CounterProviderComponent /> */}
+      {/* <CounterUseState /> */}
+      {/* <BasicCounter /> */}
 
-      <CounterProviderComponent />
-      <CounterUseState />
-      <BasicCounter />
       <UseStateTodos />
 
-      <Counter />
-      <MutateState />
-      <Gallery />
+      {/* <MutateState /> */}
+      {/* <Gallery /> */}
     </div>
   );
 }

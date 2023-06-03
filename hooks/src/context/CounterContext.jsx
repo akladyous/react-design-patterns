@@ -18,15 +18,23 @@ const CounterProvider = ({ children }) => {
 const CounterComponent = () => {
   const { count, increment, decrement } = useContext(CounterContext);
   return (
-    <div className='m-2'>
-      <p className='inline'>{count}</p>
-      <button onClick={increment} className=' mx-3 border rounded-md  px-2'>
-        +
-      </button>
-      <button onClick={decrement} className=' mx-3 border rounded-md  px-2'>
-        -
-      </button>
-    </div>
+    <main className='border p-2 my-3' id='counter'>
+      <p className='text-center'>{count}</p>
+      <div className='flex'>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={increment}
+        >
+          +
+        </button>
+        <button
+          className='border rounded-md bg-slate-100 px-5 mx-auto'
+          onClick={decrement}
+        >
+          -
+        </button>
+      </div>
+    </main>
   );
 };
 export default function CounterProviderComponent() {
