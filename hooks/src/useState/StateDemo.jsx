@@ -1,5 +1,5 @@
 import UseStateCounter from './UseStateCounter';
-import Counter from './Counter';
+import CounterUseState from './CounterUseState';
 import Gallery from './Gallery';
 import MutateState from './MutateState';
 

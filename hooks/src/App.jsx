@@ -10,12 +10,15 @@ import ReducerDemo from './useReducer/ReducerDemo';
 import UseTransitionDemo from './useTransition/UseTransitionDemo';
 //
 import BasicCounter from './components/BasicCounter';
+import CounterUseState from './useState/CounterUseState';
 
 function App() {
   return (
     <div className='App px-5'>
       <h1 className='text-4xl text-center'>Main App</h1>
       {/* <BasicCounter /> */}
+      {/* <CounterProviderComponent /> */}
+      <CounterUseState />
 
       {/* <StateDemo /> */}
 
@@ -24,8 +27,6 @@ function App() {
       {/* <UseTransitionDemo /> */}
 
       {/* <ContextDemo /> */}
-
-      <CounterProviderComponent />
 
       {/* <DeferedDemo /> */}
 

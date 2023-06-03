@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Counter() {
+export default function CounterUseState() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -8,17 +8,17 @@ export default function Counter() {
     //   setCounter(counter + 1);
   }, []);
 
-  console.log("inside the component : 'Counter'", counter); // will always printout 1 less the actual value
+  console.log('inside component - COUNTER: ', counter); // will always printout 1 less the actual value
 
   function increment() {
     console.log(
-      'before : ',
+      'Inside Event Handler - BEFORE : ',
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
         .ReactCurrentDispatcher,
     );
     setCounter((count) => count + 1);
     console.log(
-      'after : ',
+      'Inside Event Handler - AFTER : ',
       React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED
         .ReactCurrentDispatcher,
     );
