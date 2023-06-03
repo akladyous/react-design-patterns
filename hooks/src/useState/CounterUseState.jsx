@@ -3,11 +3,6 @@ import React, { useEffect, useState, useCallback } from 'react';
 export default function CounterUseState() {
   const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    console.log('Rerender...');
-    //   setCounter(counter + 1);
-  }, []);
-
   console.log('inside component - COUNTER            : ', counter);
 
   function increment() {
@@ -34,6 +29,10 @@ export default function CounterUseState() {
   const decrement = useCallback(() => {
     console.log("inside Event Handler - 'useCallback'  : ");
     setCounter((count) => count - 1);
+  }, []);
+
+  useEffect(() => {
+    console.log('Rerender...');
   }, []);
 
   return (
