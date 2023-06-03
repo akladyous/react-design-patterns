@@ -1,7 +1,6 @@
 import React from 'react';
-import StateDemo from './useState/StateDemo';
+import UseStateDemo from './useState/UseStateDemo';
 import ContextDemo from './context/ContextDemo';
-import CounterProviderComponent from './context/CounterContext';
 import UseDebugValueDemo from './useDebugValue/UseDebugValueDemo';
 import DeferedDemo from './useDeferredValue/DeferedDemo';
 import Form from './forwardRef/Form';
@@ -16,24 +15,14 @@ function App() {
   return (
     <div className='App px-5'>
       <h1 className='text-4xl text-center'>Main App</h1>
-      {/* <BasicCounter /> */}
-      {/* <CounterProviderComponent /> */}
-      <CounterUseState />
 
-      {/* <StateDemo /> */}
-
+      {/* <UseStateDemo /> */}
       {/* <ReducerDemo /> */}
-
       {/* <UseTransitionDemo /> */}
-
       {/* <ContextDemo /> */}
-
       {/* <DeferedDemo /> */}
-
       {/* <Form /> */}
-
       {/* <ModalParent /> */}
-
       {/* <ReducerDemo /> */}
     </div>
   );

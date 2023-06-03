@@ -1,18 +1,24 @@
 import UseStateCounter from './UseStateCounter';
-import CounterUseState from './CounterUseState';
+
 import Gallery from './Gallery';
 import MutateState from './MutateState';
 
 import { useTime } from '../customHooks/useTime';
 import UseStateTodos from './UseStateTodos';
 
-export default function StateDemo() {
+import BasicCounter from '../components/BasicCounter';
+import CounterUseState from './CounterUseState';
+import CounterProviderComponent from '../context/CounterContext';
+
+export default function UseStateDemo() {
   // const time = useTime();
   return (
     <div>
       {/* <p className='text-center text-blue-400'>{time.toLocaleTimeString()}</p> */}
 
-      {/* <UseStateCounter /> */}
+      <CounterProviderComponent />
+      <CounterUseState />
+      <BasicCounter />
       <UseStateTodos />
 
       <Counter />
