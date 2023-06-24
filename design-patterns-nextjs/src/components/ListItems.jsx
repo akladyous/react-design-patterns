@@ -3,18 +3,20 @@
 export default function ListItems({
   items,
   resourceName,
-  itemComponent: WraperComponent,
+  itemComponent: ItemComponent,
 }) {
   return (
     <>
       <section>
-        {items.map((item) => {
-          return (
-            <div key={crypto.randomUUID()}>
-              <WraperComponent {...{ [resourceName]: item }} />
-            </div>
-          );
-        })}
+        {items && Array.isArray(items)
+          ? items.map((item) => {
+              return (
+                <div key={crypto.randomUUID()}>
+                  <ItemComponent {...{ [resourceName]: item }} />
+                </div>
+              );
+            })
+          : null}
       </section>
     </>
   );
