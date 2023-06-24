@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { generateTodos } from '../data/todosData';
+import Todo from './Todo';
 
 const todosList = generateTodos();
 export default function Todos() {
@@ -48,24 +49,25 @@ export default function Todos() {
       </div>
       <div>
         {/* <pre>{JSON.stringify(todosList, null, 2)}</pre> */}
-        <div>
+        <div className='m-2 p-2'>
           {todos
             .slice(0)
             .sort(compareByCreatedAt)
             .map((todo) => {
-              return (
-                <div className='flex justify-between m-2' key={todo.id}>
-                  <div>
-                    <p>{todo.title}</p>
-                    <p>{todo.createdAt}</p>
-                  </div>
-                  <div>
-                    <button onClick={deleteTodo.bind(this, todo.id)}>
-                      delete
-                    </button>
-                  </div>
-                </div>
-              );
+              return <Todo todo={todo} />;
+              // return (
+              //   <div className='flex justify-between m-2' key={todo.id}>
+              //     <div>
+              //       <p>{todo.title}</p>
+              //       <p>{todo.createdAt}</p>
+              //     </div>
+              //     <div>
+              //       <button onClick={deleteTodo.bind(this, todo.id)}>
+              //         delete
+              //       </button>
+              //     </div>
+              //   </div>
+              // );
             })}
         </div>
       </div>
