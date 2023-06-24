@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 
 export default function CounterOne(props) {
@@ -5,6 +6,15 @@ export default function CounterOne(props) {
 
   const increment = () => setCounter((v) => v + 1);
   const decrement = () => setCounter((v) => v - 1);
+
+  const buttonElement = React.createElement(
+    'button',
+    {
+      className: 'border rounded-md bg-slate-100 px-5 mx-auto',
+      onClick: decrement,
+    },
+    '-',
+  );
 
   return (
     <section id='counterOne' className='border p-2 my-3 w-2/3 mx-auto'>
@@ -16,12 +26,14 @@ export default function CounterOne(props) {
           +
         </button>
         <p className='text-center'>{counter}</p>
-        <button
+
+        {buttonElement}
+        {/* <button
           className='border rounded-md bg-slate-100 px-5 mx-auto'
           onClick={decrement}
         >
           -
-        </button>
+        </button> */}
       </div>
     </section>
   );
