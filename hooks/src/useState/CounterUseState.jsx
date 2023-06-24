@@ -36,8 +36,7 @@ export default function CounterUseState() {
   }, []);
 
   return (
-    <main className='border p-2 my-3' id='counter'>
-      <p className='text-center'>{counter}</p>
+    <main className='border p-2 my-3 w-2/3 mx-auto' id='counter'>
       <div className='flex'>
         <button
           className='border rounded-md bg-slate-100 px-5 mx-auto'
@@ -45,6 +44,7 @@ export default function CounterUseState() {
         >
           +
         </button>
+        <p className='text-center'>{counter}</p>
         <button
           className='border rounded-md bg-slate-100 px-5 mx-auto'
           onClick={decrement}

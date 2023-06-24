@@ -1,3 +1,5 @@
+import CounterOne from './CounterOne';
+
 import UseStateCounter from './UseStateCounter';
 
 import Gallery from './Gallery';
@@ -14,12 +16,11 @@ export default function UseStateDemo() {
   // const time = useTime();
   return (
     <div>
+      {/* <CounterOne /> */}
+      <CounterUseState />
       {/* <CounterProviderComponent /> */}
-      {/* <CounterUseState /> */}
       {/* <BasicCounter /> */}
-
-      <UseStateTodos />
-
+      {/* <UseStateTodos /> */}
       {/* <MutateState /> */}
       {/* <Gallery /> */}
     </div>
