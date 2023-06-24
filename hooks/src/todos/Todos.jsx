@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { generateTodos } from '../data/todosData';
 
 const todosList = generateTodos();
@@ -6,24 +6,30 @@ export default function Todos() {
   const [todos, setTodos] = useState(todosList);
   const [sortOrder, setSortOrder] = useState('ascending');
 
-  const compareByCreatedAt = (a, b) => {
-    const createdAtA = new Date(a.createdAt);
-    const createdAtB = new Date(b.createdAt);
+  const compareByCreatedAt = useCallback(
+    (a, b) => {
+      const createdAtA = new Date(a.createdAt);
+      const createdAtB = new Date(b.createdAt);
 
-    if (sortOrder === 'ascending') {
-      return createdAtA - createdAtB;
-    } else {
-      return createdAtB - createdAtA;
-    }
-  };
+      if (sortOrder === 'ascending') {
+        return createdAtA - createdAtB;
+      } else {
+        return createdAtB - createdAtA;
+      }
+    },
+    [sortOrder],
+  );
 
-  const handleSortOrderChange = (event) => {
+  const handleSortOrderChange = useCallback((event) => {
     setSortOrder(event.target.value);
-  };
+  }, []);
 
-  const deleteTodo = (id, _e) => {
-    setTodos(todos.filter((todo) => todo.id != id));
-  };
+  const deleteTodo = useCallback(
+    (id) => {
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    },
+    [todos],
+  );
 
   // console.log(todos[0]);
 
