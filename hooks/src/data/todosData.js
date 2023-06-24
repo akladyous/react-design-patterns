@@ -92,7 +92,15 @@ export const todosCategory = [
     name: 'Miscellaneous',
   },
 ];
-export function todosData() {
+
+function generateRandomDate() {
+  const currentDate = new Date();
+  const randomDays = Math.floor(Math.random() * 30); // Random number of days between 0 and 29
+  currentDate.setDate(currentDate.getDate() + randomDays);
+  return currentDate.toISOString().slice(0, 10); // Format the date as 'YYYY-MM-DD'
+}
+
+export function generateTodos() {
   const todos = [];
   const categoryCount = todosCategory.length;
 
@@ -110,12 +118,14 @@ export function todosData() {
       userId: i,
       id: i,
       title: todoTitles[i % todoTitles.length],
-      completed: false,
-      important: false,
-      dueDate: '',
+      completed: Math.random() < 0.5, // Random true or false
+      important: Math.random() < 0.5, // Random true or false
+      dueDate: generateRandomDate(), // Generate random date
       repeat: '',
-      remindMe: false,
+      remindMe: generateRandomDate(), // Generate random date for reminder
       category: todoCategories,
+      createdAt: generateRandomDate(),
+      updatedAt: generateRandomDate(),
     };
 
     todos.push(todo);
@@ -124,4 +134,4 @@ export function todosData() {
   return todos;
 }
 
-console.log(JSON.stringify(todosData(), null, 2));
+// console.log(JSON.stringify(generateTodos()));

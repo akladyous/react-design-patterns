@@ -7,6 +7,7 @@ import Form from './forwardRef/Form';
 import ModalParent from './useImperativeHandle/ModalParent';
 import ReducerDemo from './useReducer/ReducerDemo';
 import UseTransitionDemo from './useTransition/UseTransitionDemo';
+import Todos from './todos/Todos';
 //
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     <div className='App px-5'>
       <h1 className='text-4xl text-center'>Main App</h1>
 
-      <UseStateDemo />
+      {/* <UseStateDemo /> */}
       {/* <ReducerDemo /> */}
       {/* <UseTransitionDemo /> */}
       {/* <ContextDemo /> */}
@@ -22,6 +23,8 @@ function App() {
       {/* <Form /> */}
       {/* <ModalParent /> */}
       {/* <ReducerDemo /> */}
+
+      <Todos />
     </div>
   );
 }
