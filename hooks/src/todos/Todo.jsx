@@ -1,5 +1,4 @@
 export default function Todo({ todo }) {
-  console.log(todo);
   return (
     <div className='bg-white shadow-md rounded-md p-4 mb-4'>
       <h2 className='text-xl font-bold'>{todo.title}</h2>
