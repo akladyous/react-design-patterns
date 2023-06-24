@@ -12,15 +12,18 @@ import BasicCounter from '../components/BasicCounter';
 import CounterUseState from './CounterUseState';
 import CounterProviderComponent from '../context/CounterContext';
 
+import UseStateUsers from './UseStateUsers';
 export default function UseStateDemo() {
   // const time = useTime();
   return (
     <div>
-      <CounterOne />
+      <UseStateUsers />
+      {/* <UseStateTodos /> */}
+
+      {/* <CounterOne /> */}
       {/* <CounterUseState /> */}
       {/* <CounterProviderComponent /> */}
       {/* <BasicCounter /> */}
-      {/* <UseStateTodos /> */}
       {/* <MutateState /> */}
       {/* <Gallery /> */}
     </div>

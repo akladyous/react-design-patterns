@@ -5,10 +5,10 @@ import CounterDemo from './CounterDemo';
 export default function ContextDemo() {
   return (
     <div>
-      {/* <UsersProvider>
+      <UsersProvider>
         <UsersConsumer />
-      </UsersProvider> */}
-      <CounterDemo />
+      </UsersProvider>
+      {/* <CounterDemo /> */}
     </div>
   );
 }
