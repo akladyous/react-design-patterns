@@ -16,8 +16,8 @@ export default function UseStateDemo() {
   // const time = useTime();
   return (
     <div>
-      {/* <CounterOne /> */}
-      <CounterUseState />
+      <CounterOne />
+      {/* <CounterUseState /> */}
       {/* <CounterProviderComponent /> */}
       {/* <BasicCounter /> */}
       {/* <UseStateTodos /> */}
