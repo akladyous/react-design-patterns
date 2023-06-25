@@ -23,13 +23,11 @@ export default function StateProvider({ children }) {
         .then((response) => response.json())
         .then((data) => {
           setUsers(data);
-        })
-        .finally(() => {
-          controller.abort();
         });
     }
     return () => {
       setStatus(false);
+      controller.abort();
     };
   }, [status]);
 
