@@ -18,13 +18,13 @@ function App() {
       {/* <UseStateDemo /> */}
       {/* <ReducerDemo /> */}
       {/* <UseTransitionDemo /> */}
-      {/* <ContextDemo /> */}
+      <ContextDemo />
       {/* <DeferedDemo /> */}
       {/* <Form /> */}
       {/* <ModalParent /> */}
       {/* <ReducerDemo /> */}
 
-      <Todos />
+      {/* <Todos /> */}
     </div>
   );
 }

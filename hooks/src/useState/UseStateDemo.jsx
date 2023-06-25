@@ -10,7 +10,6 @@ import UseStateTodos from './UseStateTodos';
 
 import BasicCounter from '../components/BasicCounter';
 import CounterUseState from './CounterUseState';
-import CounterProviderComponent from '../context/CounterContext';
 
 import UseStateUsers from './UseStateUsers';
 export default function UseStateDemo() {

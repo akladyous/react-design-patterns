@@ -1,6 +1,5 @@
 import UsersProvider from './UsersProvider';
 import UsersConsumer from './UsersConsumer';
-import CounterDemo from './CounterDemo';
 
 export default function ContextDemo() {
   return (
@@ -8,6 +7,11 @@ export default function ContextDemo() {
       <UsersProvider>
         <UsersConsumer />
       </UsersProvider>
+
+      {/* <UsersProvider>
+        <UsersConsumer />
+      </UsersProvider> */}
+
       {/* <CounterDemo /> */}
     </div>
   );

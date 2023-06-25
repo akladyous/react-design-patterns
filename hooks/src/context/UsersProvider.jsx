@@ -1,44 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { usersData } from '../data/users';
 
-export const UsersContext = createContext(null);
-export const users = () => {
-  return useContext(UsersContext);
-};
+export const UserContext = createContext();
 
 export default function UsersProvider({ children }) {
-  const [users, setUsers] = useState([]);
-  const [state, setState] = useState(false);
-
-  function getUsers() {
-    setState(true);
-  }
-
-  useEffect(() => {
-    const controller = new AbortController();
-    if (state) {
-      debugger;
-      fetch('https://jsonplaceholder.typicode.com/users', {
-        signal: controller.signal,
-      })
-        .then((response) => response.json())
-        .then((data) => setUsers(data))
-        .catch((error) => {
-          console.log(error);
-          // e instanceof TypeError && e.message === 'Failed to fetch'
-          //   ? { status: 504 }
-          //   : Promise.reject(e);
-        });
-    }
-    return () => {
-      // controller.abort();
-      controller.abort('request completed');
-      setState(false);
-    };
-  }, [state]);
-
   return (
-    <UsersContext.Provider value={{ users, getUsers }}>
+    <UserContext.Provider value={{ usersData }}>
       {children}
-    </UsersContext.Provider>
+    </UserContext.Provider>
   );
 }
