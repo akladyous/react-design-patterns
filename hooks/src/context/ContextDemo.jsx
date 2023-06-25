@@ -1,16 +1,14 @@
-import UsersProvider from './UsersProvider';
+import UserProvider from './UsersProvider';
 import UsersConsumer from './UsersConsumer';
 
 export default function ContextDemo() {
+  const url = 'https://jsonplaceholder.typicode.com/users';
+
   return (
     <div>
-      <UsersProvider>
+      <UserProvider url={url}>
         <UsersConsumer />
-      </UsersProvider>
-
-      {/* <UsersProvider>
-        <UsersConsumer />
-      </UsersProvider> */}
+      </UserProvider>
 
       {/* <CounterDemo /> */}
     </div>

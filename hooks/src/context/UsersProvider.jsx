@@ -1,12 +1,16 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { usersData } from '../data/users';
+import { createContext } from 'react';
+import DataFetching from './DataFetching';
 
-export const UserContext = createContext();
+export const UserContextProvider = createContext();
 
-export default function UsersProvider({ children }) {
+export default function UserProvider({ url, children }) {
   return (
-    <UserContext.Provider value={{ usersData }}>
-      {children}
-    </UserContext.Provider>
+    <DataFetching url={url}>
+      {({ data, loading }) => (
+        <UserContextProvider.Provider value={{ data, loading }}>
+          {children}
+        </UserContextProvider.Provider>
+      )}
+    </DataFetching>
   );
 }

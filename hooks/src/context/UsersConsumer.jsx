@@ -1,13 +1,14 @@
-import { UserContext } from './UsersProvider';
+import { UserContextProvider } from './UsersProvider';
 import { useContext } from 'react';
 
 export default function UsersConsumer() {
-  const users = useContext(UserContext);
+  const { data, loading } = useContext(UserContextProvider);
+  // debugger;
 
   return (
     <div>
-      {users.map((user) => {
-        return <p>{user.name}</p>;
+      {data.map((user) => {
+        return <p key={crypto.randomUUID()}>{user.name}</p>;
       })}
     </div>
   );
