@@ -1,9 +1,10 @@
-import UserInfo from './Function as Child Component/example1/UserInfo';
+import Counter from './Function as Child Component/example2/Counter';
 
 function App() {
   return (
-    <main>
-      <UserInfo />
+    <main className='main'>
+      <h1>main page</h1>
+      <Counter />
     </main>
   );
 }

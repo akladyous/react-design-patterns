@@ -1,0 +1,17 @@
+.counter-main {
+  border: 1px solid black;
+  min-height: 320px;
+  background-color: #e7e7e7;
+  width: 80%;
+  margin-inline: auto;
+  padding: 0.5rem;
+}
+
+.counter-main > h1 {
+  margin-block: 0;
+}
+
+.counter {
+  display: flex;
+  column-gap: 1rem;
+}

@@ -5,7 +5,7 @@ export default async function Faker(props) {
   console.log(user.length);
   return (
     <>
-      <section>
+      <section className=''>
         <h3>Faker Home Page</h3>
         <pre>
           <code>{JSON.stringify(user, null, 2)}</code>
