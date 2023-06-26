@@ -1,9 +1,8 @@
-import Counter from './Function as Child Component/example2/Counter';
+import Counter from './function-as-child-component/example2/Counter';
 
 function App() {
   return (
-    <main className='main'>
-      <h1>main page</h1>
+    <main className='my-4'>
       <Counter />
     </main>
   );
