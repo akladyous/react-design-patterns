@@ -1,9 +1,9 @@
-import Counter from './pattern/function-as-child-component/example2/Counter';
+import UserList from './pattern/list-items-component/UserList';
 
 function App() {
   return (
     <main className='my-4'>
-      <Counter />
+      <UserList />
     </main>
   );
 }
