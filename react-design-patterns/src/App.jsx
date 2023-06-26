@@ -1,4 +1,4 @@
-import Counter from './function-as-child-component/example2/Counter';
+import Counter from './pattern/function-as-child-component/example2/Counter';
 
 function App() {
   return (

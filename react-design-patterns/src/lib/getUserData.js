@@ -1,4 +1,4 @@
-import { usersData } from '@/data/users';
+import { usersData } from '../data/users';
 
 export const getUserData = async (user_id) => {
   return new Promise((resolve, reject) => {
