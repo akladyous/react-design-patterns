@@ -3,7 +3,6 @@ import { useContext } from 'react';
 
 export default function UsersConsumer() {
   const { data, loading } = useContext(UserContextProvider);
-  // debugger;
 
   return (
     <div>
