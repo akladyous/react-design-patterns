@@ -10,3 +10,14 @@ export const getUserData = async (user_id) => {
     }, 500);
   });
 };
+
+const getUser = async (userId) => {
+  return new Promise((resolve, reject) => {
+    if (!userId) reject(new Error('missing UserID'));
+    setTimeout(() => {
+      const user = usersData.find((u) => u.id == userId);
+      if (!user) reject(-1);
+      resolve(user);
+    }, 500);
+  });
+};
