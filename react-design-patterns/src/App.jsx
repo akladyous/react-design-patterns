@@ -1,9 +1,12 @@
-import UserList from './pattern/list-items-component/UserList';
+import RenderPropOneDemo from './pattern/components/render-props/RenderPropOneDemo';
+import UserList from './pattern/list-items-demo/UserList';
 
 function App() {
   return (
     <main className='my-4'>
-      <UserList />
+      {/* <UserList /> */}
+
+      <RenderPropOneDemo />
     </main>
   );
 }

@@ -1,5 +1,5 @@
-import ListItems from '../components/ListItems';
-import UserLink from './UserLink';
+import ListItems from '../components/list-items/ListItems';
+import UserLink from '../list-items-demo/UserLink';
 import { usersData } from '../../data/users';
 
 export default function UserList({ children }) {
