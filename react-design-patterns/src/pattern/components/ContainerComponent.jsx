@@ -34,7 +34,7 @@ export default function ContainerComponent({ url, resourceName, children }) {
 
   return (
     <>
-      {React.Children(children, (child) => {
+      {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { [resourceName]: data });
         }
