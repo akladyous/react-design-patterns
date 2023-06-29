@@ -25,6 +25,13 @@ export default function ContainerComponent({ url, resourceName, children }) {
     fetchData();
   });
 
+  if (loading) {
+    return <p>Loading ...</p>;
+  }
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <>
       {React.Children(children, (child) => {
