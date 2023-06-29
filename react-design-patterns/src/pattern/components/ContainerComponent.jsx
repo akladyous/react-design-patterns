@@ -2,13 +2,27 @@ import React, { useEffect, useState } from 'react';
 
 export default function ContainerComponent({ url, resourceName, children }) {
   const [resource, setResource] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       const response = await fetch(url);
-      const data = await response.json();
-      setResource(data);
-    })();
+      if (response.ok) {
+        const data = await response.json();
+        setResource(data);
+      } else {
+        const errorData = await response.json();
+        setError(errorData);
+      }
+      try {
+      } catch (error) {
+        setError('Failed to fetch data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   });
 
   return (
