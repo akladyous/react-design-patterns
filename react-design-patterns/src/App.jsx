@@ -9,5 +9,3 @@ function App() {
 }
 
 export default App;
-
-const Text = ({ text }) => <p>{text}</p>;
