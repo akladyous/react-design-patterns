@@ -1,19 +1,11 @@
 import UserList from './pattern/list-items-demo/UserList';
-
-import RenderPropOneDemo from './pattern/components/render-props/example-one/RenderPropOneDemo';
-import RenderPropTwoDemo from './pattern/components/render-props/exmple-two/RenderPropTwoDemo';
-import RenderPropThreeDemo from './pattern/components/render-props/example-three/RenderPropThreeDemo';
-import RenderPropFourDemo from './pattern/components/render-props/exmple-four/RenderPropFourDemo';
+import RenderProp from './pattern/components/render-props/RenderProp';
 
 function App() {
   return (
     <main className='my-4'>
       {/* <UserList /> */}
-
-      {/* <RenderPropOneDemo /> */}
-      {/* <RenderPropTwoDemo /> */}
-      {/* <RenderPropThreeDemo /> */}
-      {/* <RenderPropFourDemo /> */}
+      <RenderProp />
     </main>
   );
 }

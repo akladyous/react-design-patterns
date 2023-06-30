@@ -11,7 +11,7 @@ export default function ListItems({
   return (
     <>
       {items.map((item) => {
-        const key = item.id ?? crypto.randomUUID();
+        const key = item?.id ?? crypto.randomUUID();
         return (
           <Fragment key={key}>
             <ItemComponent {...{ [resourceName]: item }} />
