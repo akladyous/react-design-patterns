@@ -1,8 +1,8 @@
-import RenderPropOne from './RenderPropOne';
+import CounterRenderProp from './CounterRenderProp';
 
 export default function RenderPropOneDemo() {
   return (
-    <RenderPropOne
+    <CounterRenderProp
       render={(counter, increment, decrement) => (
         <div className='border-2 border-red-500 p-2 my-3 w-1/3 mx-auto'>
           <h4 className='text-center'>Counter One</h4>
