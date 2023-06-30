@@ -3,6 +3,7 @@ import UserList from './pattern/list-items-demo/UserList';
 import ListItemsRenderPropDemo from './pattern/components/render-props/exmple-two/ListItemsRenderPropDemo';
 
 import ListItemsRenderPropThreeDemo from './pattern/components/render-props/example-three/ListItemsRenderPropThreeDemo';
+import MouseTracker from './pattern/components/render-props/exmple-four/MouseTracker';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {/* <ListItemsRenderPropDemo /> */}
 
       <ListItemsRenderPropThreeDemo />
+      <MouseTracker />
     </main>
   );
 }
