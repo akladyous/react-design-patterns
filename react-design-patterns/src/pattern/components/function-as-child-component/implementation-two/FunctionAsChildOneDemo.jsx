@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-function CounterLogic({ children }) {
+function Counter({ children }) {
   const [counter, setCounter] = useState(0);
   const increment = () => setCounter((v) => v + 1);
   const decrement = () => setCounter((v) => v - 1);
   return children({ counter, increment, decrement });
 }
 
-export default function Counter() {
+export default function FunctionAsChildOneDemo() {
   // useEffect(() => {
   //   const incrementButton = document.querySelector('.increment');
   //   const computedStyle = window.getComputedStyle(incrementButton);
@@ -18,9 +18,9 @@ export default function Counter() {
 
   return (
     <>
-      <CounterLogic>
+      <Counter>
         {({ counter, increment, decrement }) => (
-          <main className='border mx-auto w-2/4'>
+          <main className='border mx-auto w-2/4 my-3'>
             <h1 className='text-center'>Counter Component</h1>
             <div className='flex p-2'>
               <button
@@ -39,7 +39,7 @@ export default function Counter() {
             </div>
           </main>
         )}
-      </CounterLogic>
+      </Counter>
     </>
   );
 }

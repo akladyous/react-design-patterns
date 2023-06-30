@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function ContainerComponent({ url, resourceName, children }) {
-  const [resource, setResource] = useState(null);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -9,8 +9,8 @@ export default function ContainerComponent({ url, resourceName, children }) {
     const fetchData = async () => {
       const response = await fetch(url);
       if (response.ok) {
-        const data = await response.json();
-        setResource(data);
+        const dataJson = await response.json();
+        setData(dataJson);
       } else {
         const errorData = await response.json();
         setError(errorData);

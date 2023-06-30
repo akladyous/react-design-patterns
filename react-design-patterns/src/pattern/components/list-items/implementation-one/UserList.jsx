@@ -1,6 +1,5 @@
-import ListItems from '../components/list-items/ListItems';
-import UserLink from '../list-items-demo/UserLink';
-import { usersData } from '../../data/users';
+import ListItems from '../component/ListItems';
+import { usersData } from '../../../../data/users';
 
 export default function UserList({ children }) {
   return (
@@ -11,5 +10,13 @@ export default function UserList({ children }) {
         itemComponent={UserLink}
       />
     </section>
+  );
+}
+
+function UserLink({ user }) {
+  return (
+    <div className='px-2 my-1 border hover:text-amber-900'>
+      <p>{user.name}</p>
+    </div>
   );
 }
