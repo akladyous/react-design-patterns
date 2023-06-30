@@ -5,7 +5,7 @@ const RandomNumnberHOC = withRandomNumber(DemoOne);
 
 export default function HigherOrderComponentOneDemo() {
   return (
-    <section className='border my-3 p-2 w-3/5 mx-auto'>
+    <section className='border my-3 p-2 w-3/5 mx-auto min-h-screen'>
       <RandomNumnberHOC x={1} y={2} />
     </section>
   );
