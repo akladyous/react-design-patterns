@@ -7,7 +7,7 @@ function App() {
   return (
     <main className='my-4'>
       {/* <ListItemsHome /> */}
-      <ContainerComponentHome />
+      {/* <ContainerComponentHome /> */}
       {/* <FunctionAsChildHome /> */}
       {/* <RenderPropHome /> */}
     </main>
