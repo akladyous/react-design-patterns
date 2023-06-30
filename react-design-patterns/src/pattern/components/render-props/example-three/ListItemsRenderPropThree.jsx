@@ -1,5 +1,4 @@
-import { Fragment } from 'react';
-import { todos } from '../../../../data/todos';
+import { Fragment, useState } from 'react';
 
 export default function ListItemsRenderPropThree({ items, render }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -14,20 +13,12 @@ export default function ListItemsRenderPropThree({ items, render }) {
 
       <button
         onClick={() => {
+          console.log(selectedIndex);
           setSelectedIndex((i) => (i + 1) % items.length);
         }}
       >
         next
       </button>
     </Fragment>
-  );
-}
-
-function RenderPropList() {}
-function Row({ title, isHighlighted }) {
-  return (
-    <div className={['Row', isHighlighted ? 'bg-yellow-100' : ''].join(' ')}>
-      {title}
-    </div>
   );
 }
