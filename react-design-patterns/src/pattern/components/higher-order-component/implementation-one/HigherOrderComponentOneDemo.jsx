@@ -21,7 +21,7 @@ function DemoOne({ randomNumGenerator }) {
   return (
     <section className='bg-slate-50'>
       <h4>Higher Order Component</h4>
-      <div className=''>
+      <div>
         <p>{randomNum}</p>
         <button onClick={generateRandomNumber}>Random Number</button>
       </div>
