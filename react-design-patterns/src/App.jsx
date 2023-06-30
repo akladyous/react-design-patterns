@@ -1,4 +1,4 @@
-import RenderPropOneDemo from './pattern/components/render-props/RenderPropOneDemo';
+import RenderPropOneDemo from './pattern/components/render-props/example-one/RenderPropOneDemo';
 import UserList from './pattern/list-items-demo/UserList';
 
 function App() {

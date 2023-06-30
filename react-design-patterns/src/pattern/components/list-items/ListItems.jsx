@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default function ListItems({
   items,
@@ -11,10 +11,11 @@ export default function ListItems({
   return (
     <>
       {items.map((item) => {
+        const key = item.id ?? crypto.randomUUID();
         return (
-          <div key={crypto.randomUUID()}>
+          <Fragment key={key}>
             <ItemComponent {...{ [resourceName]: item }} />
-          </div>
+          </Fragment>
         );
       })}
     </>
