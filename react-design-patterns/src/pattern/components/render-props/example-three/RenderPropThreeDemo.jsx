@@ -1,7 +1,7 @@
 import { todos } from '../../../../data/todos';
 import ListItemsRenderPropThree from './ListItemsRenderPropThree';
 
-export default function ListItemsRenderPropThreeDemo() {
+export default function RenderPropThreeDemo() {
   return (
     <div className='border py-3 p-2 w-3/5 mx-auto'>
       <ListItemsRenderPropThree

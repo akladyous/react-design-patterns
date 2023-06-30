@@ -1,7 +1,7 @@
 import ListItemsRenderProp from './ListItemsRenderProp';
 import { todos } from '../../../../data/todos';
 
-const ListItemsRenderPropDemo = () => {
+const RenderPropTwoDemo = () => {
   return (
     <ListItemsRenderProp
       items={todos}
@@ -11,4 +11,4 @@ const ListItemsRenderPropDemo = () => {
     />
   );
 };
-export default ListItemsRenderPropDemo;
+export default RenderPropTwoDemo;

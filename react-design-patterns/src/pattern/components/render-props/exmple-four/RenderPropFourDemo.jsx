@@ -1,6 +1,10 @@
 import MouseRenderProp from './MouseRenderProp';
 
-export default function MouseTracker() {
+export default function RenderPropFourDemo() {
+  return <MouseTracker />;
+}
+
+function MouseTracker() {
   return (
     <MouseRenderProp
       render={(mouse) => {
