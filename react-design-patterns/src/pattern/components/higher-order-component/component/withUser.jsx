@@ -26,7 +26,9 @@ export default function withUser(Component, userId) {
             setError('Error occurred while fetching user data');
           } else {
             const data = await response.json();
-            setUser(data);
+            if (active) {
+              setUser(data);
+            }
           }
         } catch (error) {
           if (error.name === 'AbortError') {
@@ -37,12 +39,11 @@ export default function withUser(Component, userId) {
           setLoading(false);
         }
       };
-      // if (userId)
       fetchData();
 
       return () => {
         if (!loading) {
-          controller.abort();
+          controllerRef.current.abort();
         }
         active = false;
       };

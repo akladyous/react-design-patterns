@@ -35,7 +35,6 @@ const RandomUser = ({ user, isLoading, error }) => {
   if (error) {
     return <p>{error.toString()}</p>;
   }
-  // console.log(error);
   if (!user) {
     return null;
   }
