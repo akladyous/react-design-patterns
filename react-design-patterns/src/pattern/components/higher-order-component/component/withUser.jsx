@@ -2,18 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function withUser(Component, userId) {
   return function WithUserByID(props) {
-    const [count, setCount] = useState(0);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const controllerRef = useRef(new AbortController()); // maintains a consistent reference to the AbortController instance throughout the component's lifecycle.
 
     useEffect(() => {
-      setCount((c) => c + 1);
       const controller = new AbortController();
       var active = true;
 
       const fetchData = async () => {
+        if (!userId) {
+          setLoading(false);
+          return;
+        }
         try {
           const response = await fetch(
             `https://swapi.dev/api/people/${userId}`,
@@ -27,6 +29,9 @@ export default function withUser(Component, userId) {
             setUser(data);
           }
         } catch (error) {
+          if (error.name === 'AbortError') {
+            return;
+          }
           setError(error.message);
         } finally {
           setLoading(false);
@@ -35,25 +40,11 @@ export default function withUser(Component, userId) {
       // if (userId)
       fetchData();
 
-      console.group('=- useEffect -=');
-      console.log('user    : ', user);
-      console.log('loading : ', loading);
-      console.log('error   : ', error);
-      console.log('active  : ', active);
-      console.log('count   : ', count);
-      console.groupEnd();
       return () => {
         if (!loading) {
           controller.abort();
         }
         active = false;
-        console.group('cleanup function');
-        console.log('user    : ', user);
-        console.log('loading : ', loading);
-        console.log('error   : ', error);
-        console.log('active  : ', active);
-        console.log('count   : ', count);
-        console.groupEnd();
       };
     }, [userId]);
 
@@ -62,12 +53,3 @@ export default function withUser(Component, userId) {
     );
   };
 }
-
-/*
-console.group('useEffect');
-console.log('user    : ', user);
-console.log('loading : ', loading);
-console.log('error   : ', error);
-console.log('active  : ', active);
-console.groupEnd();
-*/
