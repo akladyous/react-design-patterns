@@ -7,9 +7,13 @@ export default function withUser(Component, userId) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+      const controller = new AbortController();
       const fetchData = async () => {
         try {
-          const response = fetch(`url/${userId}`);
+          const response = fetch(
+            `https://jsonplaceholder.typicode.com/users/${userId}`,
+            { signal: controller.signal },
+          );
           if (!response.ok) {
             setError(error);
           } else {
@@ -22,10 +26,13 @@ export default function withUser(Component, userId) {
           setLoading(false);
         }
       };
+
+      fetchData();
+      return () => controller.abort();
     }, [userId]);
 
     return (
-      <Component user={data} isLoading={loading} error={error} {...props} />
+      <Component user={user} isLoading={loading} error={error} {...props} />
     );
   };
 }

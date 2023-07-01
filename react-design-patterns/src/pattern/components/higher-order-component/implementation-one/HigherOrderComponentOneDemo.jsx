@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import withRandomNumber from '../component/withRandomNumbers';
+import withRandomNumbersGenerator from '../component/withRandomNumbersGenerator';
 
-const RandomNumnberHOC = withRandomNumber(DemoOne);
+const RandomNumnberHOC = withRandomNumbersGenerator(DemoOne);
 
 export default function HigherOrderComponentOneDemo() {
   return (
