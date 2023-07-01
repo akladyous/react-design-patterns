@@ -8,7 +8,7 @@ import ModalParent from './useImperativeHandle/ModalParent';
 import ReducerDemo from './useReducer/ReducerDemo';
 import UseTransitionDemo from './useTransition/UseTransitionDemo';
 import Todos from './todos/Todos';
-//
+import UseEffectDemo from './useEffect/UseEffectDemo';
 
 function App() {
   return (
@@ -18,11 +18,12 @@ function App() {
       {/* <UseStateDemo /> */}
       {/* <ReducerDemo /> */}
       {/* <UseTransitionDemo /> */}
-      <ContextDemo />
+      {/* <ContextDemo /> */}
       {/* <DeferedDemo /> */}
       {/* <Form /> */}
       {/* <ModalParent /> */}
       {/* <ReducerDemo /> */}
+      <UseEffectDemo />
 
       {/* <Todos /> */}
     </div>
