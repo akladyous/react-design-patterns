@@ -1,13 +1,25 @@
 import { faker, fakerEN_US } from '@faker-js/faker';
 
-export const generateFakeUsers = async (timeout = 2000, totalRecords = 10) => {
+export const generateFakeUsers = async (
+  timeout = 2000,
+  totalRecords = 10,
+  abortController,
+) => {
   return new Promise((resolve, reject) => {
     if (timeout > 5000) reject(undefined);
     setTimeout(() => {
       const data = [];
       for (let i = 0; i < totalRecords; i++) {
+        if (
+          typeof abortController !== 'undefined' &&
+          abortController instanceof AbortController
+        ) {
+          if (abortController.signal.aborted) {
+            reject('Request aborted');
+            break;
+          }
+        }
         const sample = sampleUser();
-
         data.push({ ...sample, id: i + 1 });
       }
       resolve(data);

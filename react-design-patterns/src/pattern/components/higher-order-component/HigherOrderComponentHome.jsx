@@ -3,6 +3,7 @@ import HigherOrderComponentTwoDemo from './implementation-two/HigherOrderCompone
 import HigherOrderComponentThreeDemo from './implementation-three/HigherOrderComponentThreeDemo';
 import HigherOrderComponentFourDemo from './implementation-four/HigherOrderComponentFourDemo';
 import HigherOrderComponentFiveDemo from './implementation-five/HigherOrderComponentFiveDemo';
+import HigherOrderComponentSixDemo from './implementation-six/HigherOrderComponentSixDemo';
 
 export default function HigherOrderComponentHome() {
   return (
@@ -11,7 +12,8 @@ export default function HigherOrderComponentHome() {
       {/* <HigherOrderComponentTwoDemo /> */}
       {/* <HigherOrderComponentThreeDemo /> */}
       {/* <HigherOrderComponentFourDemo /> */}
-      <HigherOrderComponentFiveDemo />
+      {/* <HigherOrderComponentFiveDemo /> */}
+      <HigherOrderComponentSixDemo />
     </main>
   );
 }

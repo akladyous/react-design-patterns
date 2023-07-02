@@ -56,3 +56,27 @@ export default function withUser(Component, userId) {
     );
   };
 }
+export const generateFakeUsers = async (
+  timeout = 2000,
+  totalRecords = 10,
+  abortController,
+) => {
+  return new Promise((resolve, reject) => {
+    if (timeout > 5000) reject(undefined);
+
+    do {
+      setTimeout(() => {
+        const data = [];
+        for (let i = 0; i < totalRecords; i++) {
+          if (abortController.signal.aborted) {
+            reject('Request aborted');
+            return;
+          }
+          const sample = sampleUser();
+          data.push({ ...sample, id: i + 1 });
+        }
+        resolve(data);
+      }, timeout);
+    } while (!abortController.signal.aborted);
+  });
+};
