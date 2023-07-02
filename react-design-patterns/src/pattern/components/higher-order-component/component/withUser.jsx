@@ -36,7 +36,9 @@ export default function withUser(Component, userId) {
           }
           setError(error.message);
         } finally {
-          setLoading(false);
+          if (!controller.signal.aborted) {
+            setLoading(false);
+          }
         }
       };
       fetchData();
