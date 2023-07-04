@@ -1,6 +1,4 @@
-# Project Name
-
-Welcome to the Project Name repository!
+# React Design Patterns
 
 ## Introduction
 
